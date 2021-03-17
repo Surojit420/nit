@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /application/controllers/Admin.php
+User-agent: *
+Disallow: /application/controllers/Login.php

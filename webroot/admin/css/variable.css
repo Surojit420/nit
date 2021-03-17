@@ -1,0 +1,8 @@
+:root {
+	--sj-color-blue: #32067c;
+	--sj-color-blue-light: #5600e6;
+	--sj-color-white: #fff;
+	--sj-color-black: #000;
+	--sj-box-shadow : 0 0 0 0.2rem rgb(50 6 124 / 32%);
+	--sj-box-shadow-border : #32067c54;
+}
