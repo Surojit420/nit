@@ -9,8 +9,8 @@ class ChooseNitController extends CI_Controller
 	  	parent::__construct(); 		
 		$this->load->helper(array('common_helper', 'string', 'form', 'security'));
 		$this->load->library(array('form_validation', 'email'));
-		$this->load->model('CommonModel');			
-
+		$this->load->model('CommonModel');
+		
 	}	
 
 	public function choosenit()

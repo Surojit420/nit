@@ -133,25 +133,15 @@
                             <h2 class="section-title wow animate__animated animate__fadeInDown">Contact <strong>Us</strong></h2>
                           </div>
                           <ul>
-                              <li><i class="fa fa-phone" aria-hidden="true"></i> <span>9933630089 / 9093256070</span></li>
-                              <li><i class="fa fa-map-marker" aria-hidden="true"></i> <span>Dum Dum Cantonment,Near pump house,Kolkata -700065, India</span></li>
-                              <li><i class="fa fa-envelope-o" aria-hidden="true"></i><span>nitsplindia@gmail.com</span></li>
+                              <li><i class="fa fa-phone" aria-hidden="true"></i> <span><?=$contact->phone_no?>
+                              </span></li>
+                              <li><i class="fa fa-map-marker" aria-hidden="true"></i> <span><?=$address->address?></span></li>
+                              <li><i class="fa fa-envelope-o" aria-hidden="true"></i><span><?=$email->email?></span></li>
                           </ul>
                       </div>
                   </div>
                   <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                      <div class="subscribe btm-brdr">
-                          <div class="title-upperpart">
-                            <h2 class="section-title wow animate__animated animate__fadeInDown">Subscribe <strong>Newsletter</strong></h2>
-                          </div>
-                          <form role="form" action="<?=base_url('subscribe')?>" method="post" >
-                            <input type="email" placeholder="Example@example.com" name="email" id="email"/>
-                            <div class="form-Box">
-                               <input type="submit" class="btn_3 wow animate__animated animate__slideInUp">
-                              <!-- <a href="#" class="btn_3 wow animate__animated animate__fadeInRight"></a> -->
-                            </div>
-                          </form>
-                      </div>
+                      
                       <div class="social-icons">
                           <ul>
                               <li>

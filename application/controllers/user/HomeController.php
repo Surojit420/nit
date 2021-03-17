@@ -11,6 +11,10 @@ class HomeController extends CI_Controller
 		$this->load->helper(array('common_helper', 'string', 'form', 'security','url','text'));
 		$this->load->library(array('form_validation', 'email'));
 		$this->load->model('CommonModel');
+		if($this->session->userdata('adminDetails')==NULL)
+		{
+		   return redirect('/');
+		}
 				
 	} 
 	
@@ -57,7 +61,9 @@ class HomeController extends CI_Controller
 		);
 		$select='name,description,location,experience';
 		$this->data['job_summary']=$this->CommonModel->RetriveRecordByWhere('tbl_job_summary',$where_clause,$select);
-
+		$this->data['contact']=$this->CommonModel->RetriveRecordByWhereRow('tbl_contact',$where_clause,'*');
+		$this->data['email']=$this->CommonModel->RetriveRecordByWhereRow('tbl_contact',$where_clause,'*');
+		$this->data['address']=$this->CommonModel->RetriveRecordByWhereRow('tbl_contact',$where_clause,'*');
 		$this->data['page_title']='NIT | Home';
 		$this->data['subview']='home/home';
 		//pr($this->data);
