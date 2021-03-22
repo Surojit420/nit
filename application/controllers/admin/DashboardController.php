@@ -12,10 +12,12 @@ class DashboardController extends CI_Controller
 		{
 		   return redirect('/');
 		}
+			$this->load->model('CommonModel');
 	} 
 	public function index()
-	{		
-		$this->data['page_title']='Bongtech | Dashboard';
+	{	
+	
+		$this->data['page_title']='NNIT | Dashboard';
 		$this->data['subview']='dashboard/dashboard';
 		$this->load->view('admin/layout/default', $this->data);
 	}
