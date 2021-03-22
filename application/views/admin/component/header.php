@@ -56,10 +56,8 @@
         <div id="main-wrapper">
             <div class="nav-header">
               <!-- Navbar logo start -->
-                <a href="index.html" class="brand-logo">
+                <a href="<?=base_url()?>" class="brand-logo">
                     <img class="logo-abbr" src="<?=base_url()?>webroot/admin/images/logo.png" alt="" />
-                    <!-- <img class="logo-compact" src="<?=base_url()?>webroot/admin/images/logo-text.png" alt="" /> -->
-                    <!-- <img class="brand-title" src="<?=base_url()?>webroot/admin/images/logo-text.png" alt="" /> -->
                 </a>
               <!-- Navbar logo end -->
 

@@ -57,7 +57,6 @@ class HomeController extends CI_Controller
 		);
 		$select='name,description,location,experience';
 		$this->data['job_summary']=$this->CommonModel->RetriveRecordByWhere('tbl_job_summary',$where_clause,$select);
-		
 
 		$this->data['page_title']='NIT | Home';
 		$this->data['subview']='home/home';

@@ -59,10 +59,10 @@
                                 <span class="nav-text">Business</span>
                             </a>
                         </li>
-                        <li class="<?=$controller_name=='JobApplyController' ? 'active' : ''?>" >
-                            <a href="<?=base_url('admin/job_apply')?>" class="ai-icon" aria-expanded="false">
+                        <li class="<?=$controller_name=='JobApplayController' ? 'active' : ''?>" >
+                            <a href="<?=base_url('admin/job_applay')?>" class="ai-icon" aria-expanded="false">
                                 <i class="fa fa-tasks" aria-hidden="true"></i>
-                                <span class="nav-text">Job Apply</span>
+                                <span class="nav-text">Job Applay</span>
                             </a>
                         </li>
                         <li class="<?=$controller_name=='QueryController' ? 'active' : ''?>" >
