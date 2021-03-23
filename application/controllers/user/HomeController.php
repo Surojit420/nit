@@ -11,10 +11,7 @@ class HomeController extends CI_Controller
 		$this->load->helper(array('common_helper', 'string', 'form', 'security','url','text'));
 		$this->load->library(array('form_validation', 'email'));
 		$this->load->model('CommonModel');
-		if($this->session->userdata('adminDetails')==NULL)
-		{
-		   return redirect('/');
-		}
+	
 				
 	} 
 	

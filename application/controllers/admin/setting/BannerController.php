@@ -10,7 +10,10 @@ class BannerController extends CI_Controller
 		$this->load->helper(array('common_helper', 'string', 'form', 'security'));
 		$this->load->library(array('form_validation', 'email'));
 		$this->load->model('CommonModel');			
-
+		if($this->session->userdata('adminDetails')==NULL)
+		{
+		   return redirect('/');
+		}
 	}	
 
 	public function banner()
@@ -22,6 +25,8 @@ class BannerController extends CI_Controller
 
 		$this->data['page_title']='NNIT | Banner  ';
 		$this->data['subview']='setting/banner';
+		$this->data['logo_icons']=$this->CommonModel->RetriveRecordByWhereRow('tbl_logo',['status'=>'Active'],'image');
+		$this->data['foot_con'] = $this->CommonModel->RetriveRecordByWhereRow('tbl_contact',['status'=>'Active'],'footer_copy_right');
 		$this->load->view('admin/layout/default', $this->data);
 	}
 

@@ -8,7 +8,7 @@
                     </div>
                     <div class="card-body">
                         <div class="basic-form">
-                           <form  action="<?=base_url('superadmin/changepassword')?>" id="change_password" method="post">
+                           <form action="<?=base_url('admin/changepassword')?>" id="change_password" method="post">
                                 <div class="form-group">
                                     <label class="mb-1"><strong>Current Password</strong></label>
                                     <input type="password" name="current_password" id="current_password" class="form-control validate[required]"  maxlength="20" data-errormessage-value-missing="Current password is required" data-prompt-position="bottomLeft" placeholder="Type current password"/>

@@ -6,8 +6,10 @@
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <title><?=$page_title;?></title>
         <meta name="description" content="Some description for the page" />
+<?php if(!empty($logo_icons)) { ?>
 
-        <link rel="icon" type="image/png" sizes="16x16" href="<?=base_url()?>webroot/admin/images/logo.png" /> <!-- For url icon -->
+        <link rel="icon" type="image/png" sizes="16x16" href="<?=base_url('webroot/admin/logo/web/'.$logo_icons->image)?>" />
+     <?php   } ?><!-- For url icon -->
         <link rel="stylesheet" type="text/css" href="<?=base_url()?>webroot/admin/css/bootstrap-select.min.css"/> <!-- For bootstrap select -->
         <link rel="stylesheet" type="text/css" href="<?=base_url()?>webroot/admin/css/variable.css"/> <!-- For scss variables -->
         <link rel="stylesheet" type="text/css" href="<?=base_url()?>webroot/admin/css/font-awesome.css"> <!-- For Fontawesome icons -->
@@ -56,9 +58,11 @@
         <div id="main-wrapper">
             <div class="nav-header">
               <!-- Navbar logo start -->
+              <?php if(!empty($logo_icons)) { ?>
                 <a href="<?=base_url()?>" class="brand-logo">
-                    <img class="logo-abbr" src="<?=base_url()?>webroot/admin/images/logo.png" alt="" />
+                    <img class="logo-abbr" src="<?=base_url('webroot/admin/logo/web/'.$logo_icons->image)?>" alt="" />
                 </a>
+            <?php } ?>
               <!-- Navbar logo end -->
 
               <!-- Navbar open close button start -->
@@ -80,7 +84,7 @@
                             </div>
                             <ul class="navbar-nav header-right">
                                 <!-- Notification start -->
-                                <li class="nav-item dropdown notification_dropdown">
+                             <!--    <li class="nav-item dropdown notification_dropdown">
                                     <a class="nav-link ai-icon" href="javascript:;" role="button" data-toggle="dropdown">
                                         <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path
@@ -139,7 +143,7 @@
                                             </ul>
                                         </div>
                                     </div>
-                                </li>
+                                </li> -->
                                 <!-- Notification end -->
 
                                 <!-- Profile start -->
@@ -162,7 +166,7 @@
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right">
                                         
-                                         <a href="<?=base_url('superadmin/changepassword')?>" class="dropdown-item ai-icon">
+                                         <a href="<?=base_url('admin/changepassword')?>" class="dropdown-item ai-icon">
                                             <i class="fa fa-key" aria-hidden="true"></i>
                                             <span class="ml-2">Change Password </span>
                                         </a>

@@ -1,7 +1,9 @@
  <!-- Footer start -->
             <div class="footer">
                 <div class="copyright">
-                    <p>Copyright © Designed &amp; Developed by <a href="javascript:void(0)" target="_blank">Subhajit and Swapan</a> 2020</p>
+                    <?php if(!empty($foot_con)) { ?>
+                    <p><?=$foot_con->footer_copy_right?></p>
+                <?php } ?>
                 </div>
             </div>
             <!-- Footer end -->

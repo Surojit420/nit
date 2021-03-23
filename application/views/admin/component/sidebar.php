@@ -60,9 +60,9 @@
                             </a>
                         </li>
                         <li class="<?=$controller_name=='JobApplayController' ? 'active' : ''?>" >
-                            <a href="<?=base_url('admin/job_applay')?>" class="ai-icon" aria-expanded="false">
+                            <a href="<?=base_url('admin/job_apply')?>" class="ai-icon" aria-expanded="false">
                                 <i class="fa fa-tasks" aria-hidden="true"></i>
-                                <span class="nav-text">Job Applay</span>
+                                <span class="nav-text">Job Apply</span>
                             </a>
                         </li>
                         <li class="<?=$controller_name=='QueryController' ? 'active' : ''?>" >
@@ -71,27 +71,11 @@
                                 <span class="nav-text">Query</span>
                             </a>
                         </li>
-                        <!-- <li>
-                            <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                                <i class="fa fa-bolt" aria-hidden="true"></i>
-                                <span class="nav-text">Bootstrap</span>
-                            </a>
-                            <ul aria-expanded="false">
-                                <li><a href="">Accordion</a></li>
-                                <li><a href="">Button</a></li>
-                                <li><a href="">Tab</a></li>
-                            </ul>
-                        </li> -->
-                        <!-- <li>
-                            <a href="<?=base_url('superadmin/changepassword')?>" class="ai-icon" aria-expanded="false">
-                                <i class="fa fa-trophy" aria-hidden="true"></i>
-                                <span class="nav-text">Change Password</span>
-                            </a>
-                        </li> --> 
                     </ul>
                     <div class="copyright">
-                        <p class="fs-14 font-w200"><strong class="font-w400">Bongtech Admin Dashboard</strong> © 2020 All Rights Reserved</p>
-                        <p>Made with <i class="fa fa-heart"></i> by Subhajit and Swapan</p>
+                       <?php if(!empty($foot_con)) { ?>
+                    <p><?=$foot_con->footer_copy_right?></p>
+                <?php } ?>
                     </div>
                 </div>
             </div>

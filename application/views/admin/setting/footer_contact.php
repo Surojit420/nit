@@ -61,6 +61,65 @@
                                            <textarea rows="2" cols="30" style="resize: none;"  name="contact_map" id="contact_map" class="form-control" data-errormessage-value-missing="Contact map iframe" data-prompt-position="bottomLeft"placeholder="Enter map iframe" ></textarea> 
                                        </div> 
                                     </div>
+                                     <div class="col-lg-6">
+                                        <div class="form-group">
+                                            Icones
+                                        <select class="form-control form-control-lg" >
+                                            <option data-content="<i class='fa fa-facebook' aria-hidden='true'></i>  facebook" value="Facebook" ></option> 
+                                        </select>
+                                    </div> 
+                                    </div>
+                                     <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Link</label>
+                                            <input type="text" name="facebook" id="link" class="form-control validate[required]" data-errormessage-value-missing="link is required" data-prompt-position="bottomLeft" placeholder="facebook link" maxlength="200">     
+                                        </div>
+                                    </div>
+                                     <div class="col-lg-6">
+                                        <div class="form-group">
+                                            Icones
+                                        <select class="form-control form-control-lg" >
+                                                 <option data-content="<i class='fa fa-twitter' aria-hidden='true'></i> twitter" ></option>
+                                        </select>
+                                    </div> 
+                                    </div>
+                                       <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Link</label>
+                                            <input type="text" name="twitter" id="link" class="form-control validate[required]" data-errormessage-value-missing="link is required" data-prompt-position="bottomLeft" placeholder="twitter link" maxlength="200">     
+                                        </div>
+                                    </div>
+                                     <div class="col-lg-6">
+                                        <div class="form-group">
+                                            Icones
+                                        <select class="form-control form-control-lg" >
+                                                 <option data-content="<i class='fa fa-linkedin' aria-hidden='true'></i> linkedin" value="Pinterest"></option>                          
+                                        </select>
+                                    </div> 
+                                    </div>
+                                       <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Link</label>
+                                            <input type="text" name="linkedin" id="link" class="form-control validate[required]" data-errormessage-value-missing="link is required" data-prompt-position="bottomLeft" placeholder="linkedin link" maxlength="200">     
+                                        </div>
+                                    </div>
+                                     <div class="col-lg-6">
+                                        <div class="form-group">
+                                            Icones
+                                        <select class="form-control form-control-lg" >
+                                          
+                                                 <option data-content="<i class='fa fa-instagram' aria-hidden='true'></i> Instagram" value="Instagram"></option>
+                                                
+                                        </select>
+                                    </div> 
+                                    </div>
+                                       <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Link</label>
+                                            <input type="text" name="instagram" id="link" class="form-control validate[required]" data-errormessage-value-missing="link is required" data-prompt-position="bottomLeft" placeholder="instagram link" maxlength="200">     
+                                        </div>
+                                    </div>
+                                   
                                 </div>
                                 <div class="col-sm-12">
                                     <button class="btn btn-warning btn-primary pull-right m-t-n-xs grediant-btn" type="reset"><strong>Cancel</strong></button>
@@ -93,6 +152,7 @@
                                        <th>Contact Us</th>
                                        <th>Map Iframe</th>
                                        <th>Contact Images</th>
+                                       <th>Link</th>
                                        <th>Status</th>
                                        <th>Action</th> 
                                     </tr>
@@ -152,6 +212,9 @@
                                           <td><div class="all_seller_table_width"><?=$value->contact_map?></div></td>
                                         <td>
                                             <img src="<?= base_url('webroot/admin/contact/'.$value->contact_images)?>" class="showTableImage" id="product_img">
+                                        </td>
+                                        <td>
+                                          link
                                         </td>
                                         <td>
                                             <input type="checkbox" class="js-switch" onchange="common_status_change(this.value)" id="status" value="<?=$value->uniqcode?>" <?=$value->status == 'Active' ? 'checked' : ''?> /></td>
