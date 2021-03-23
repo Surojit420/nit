@@ -300,7 +300,6 @@ if(!empty($banner)){?>
           <h2 class="section-title wow animate__animated animate__fadeInDown">TECHNOLOGIES WE ARE <strong>WORKING ON</strong></h2>
         </div>
         <div class="container">
-          
             <?php
               foreach ($technologies as $k => $technologies_data) 
               {
@@ -598,8 +597,9 @@ if(!empty($banner)){?>
                     <h2 class="section-title wow animate__animated animate__fadeInDown">We Are <strong>Teaching</strong></h2>
                   </div>
                   <div class="job-card">
+                    
                     <?php
-                      foreach ($job_summary as $job_summary_data) 
+                      foreach ($job_summary as $key => $job_summary_data) 
                       {
                     ?>
                       <div class="job-card-inner">
@@ -613,7 +613,31 @@ if(!empty($banner)){?>
                           </div>
                         </div>
                           
-                        <p class="description wow animate__animated animate__fadeInLeft"><?=$job_summary_data->description?></p>
+                        <p class="description wow animate__animated animate__fadeInLeft">
+
+                      <?php
+                     // echo $job_summary_data->description;
+                    if(!empty($job_summary_data->description))
+                    {  
+                      $testing_details = word_limiter($job_summary_data->description,7, '');
+
+                    ?>
+                      <span id="more_<?=$key?>">
+                        <?php
+                            echo $testing_details.'...'; 
+                            echo '<a href="javascript:void(0)" onclick="show_more(\''.$key.'\')" style="color: cornflowerblue;">more</a>';
+                        ?>
+                      </span>
+                      <span id="less_<?=$key?>" style="display:none" >
+                          <?php
+                                  echo  $job_summary_data->description;
+                                  echo '<a onclick="show_less(\''.$key.'\')" href="javascript:void(0)" style="color: cornflowerblue;">less</a>';  
+                          ?>
+                      </span>
+                    <?php
+                    }
+                    ?>
+                    </p>
                         
                         <a href="<?=base_url('career')?>" class="btn_3 wow animate__animated animate__fadeInRight">apply</a>
                       </div>
@@ -630,11 +654,11 @@ if(!empty($banner)){?>
                   </div>
                   <div class="contact-us-innerpart">
                     <p class="contact-us-header wow animate__animated animate__fadeInUp">Office</p>
-                    <p class="contact-us-desc wow animate__animated animate__fadeInUp">Address :Dum Dum Cantonment,Near pump house,Kolkata -700065, India</p>
+                    <p class="contact-us-desc wow animate__animated animate__fadeInUp"><?=$address->address?></p>
                     <p class="contact-us-header wow animate__animated animate__fadeInUp">Call us</p>
-                    <p class="contact-us-desc wow animate__animated animate__fadeInUp">9933630089 / 9093256070</p>
+                    <p class="contact-us-desc wow animate__animated animate__fadeInUp"><?=$contact->phone_no?></p>
                     <p class="contact-us-header wow animate__animated animate__fadeInUp">Email us</p>
-                    <p class="contact-us-desc wow animate__animated animate__fadeInUp">info@nitsolution.in /support@nitsolution.in</p>
+                    <p class="contact-us-desc wow animate__animated animate__fadeInUp"><?=$email->email?></p>
                     <ul class="social-icons">
                       <li>
                         <a class="facebook wow animate__animated animate__heartBeat" target="_blank" href="https://www.facebook.com/nit.solution.pvt.ltd"><i class="fa fa-facebook" aria-hidden="true"></i></a>

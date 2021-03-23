@@ -35,6 +35,7 @@
                                             <textarea name="description" id="summernote" class=" description " rows="4" cols="30" style="resize: none;"></textarea>
                                         </div>
                                     </div>
+                                    
                                 </div>
                                 <div class="col-sm-12">
                                     <button class="btn btn-warning btn-primary pull-right m-t-n-xs grediant-btn" type="reset"><strong>Cancel</strong></button>
@@ -75,8 +76,10 @@
                                         <td><?=$value->location?></td>
                                         <td><?=$value->experience?></td>
                                         <td><div class="all_seller_table_width">
-                                            <?=$value->description?>
-                                          </div></td>
+                                            <?=$value->description?> 
+                                          </div>
+
+                                      </td>
                                         <td>
                                             <input type="checkbox" class="js-switch" onchange="common_status_change(this.value)" id="status" value="<?=$value->uniqcode?>" <?=$value->status == 'Active' ? 'checked' : ''?> /></td>
                                         <td>

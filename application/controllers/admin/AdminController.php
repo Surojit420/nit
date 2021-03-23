@@ -10,9 +10,7 @@ class AdminController extends CI_Controller
 		$this->load->helper(array('common_helper', 'string', 'form', 'security'));
 		$this->load->library(array('form_validation', 'email'));
 		$this->load->model('CommonModel');	
-		
-
-	} 
+	}	
 
 	public function index()
 	{		
@@ -83,7 +81,7 @@ class AdminController extends CI_Controller
 					'mobile_no'=>$user_id,
 					'password'=>$password,
 					);
-					$result =$this->CommonModel->RetriveRecordByWhereRow('tbl_admin',$data1);			
+					$result =$this->CommonModel->RetriveRecordByWhereRow('tbl_admin',$data1,'*');			
 
 					if($result->is_delete=='N' && $result->is_active=='Active')
 					{
@@ -166,16 +164,19 @@ class AdminController extends CI_Controller
 		if(!empty($_POST))
 		{
 			$old_pass=MD5($this->input->post('current_password'));
+
 			$data=array(
 				'id'=>$id,
 				'password'=>$old_pass,
 				'is_delete'=>'N',
 				'is_active'=>'Active'
 			);
-			// pr($data);
-			
+			//  pr($data);
+			// //print_r($old_pass);
+			// die();
+			// exit();
 			$old_data=$this->CommonModel->Check_Old_Password('tbl_admin',$data);
-			
+
 			if(!empty($old_data))
 			{
 				$check_pass=MD5($this->input->post('password'));
@@ -191,11 +192,11 @@ class AdminController extends CI_Controller
 						if($update)
 						{
 							$data2=array('id'=>$id);
-							$result =$this->CommonModel->RetriveRecordByWhereRow('tbl_admin',$data1);
+							$result =$this->CommonModel->RetriveRecordByWhereRow('tbl_admin',$data1,'*');
 							$this->session->unset_userdata('adminDetails');
 							$this->session->set_userdata('adminDetails',$result);	
 							$this->session->set_flashdata('success', 'Your password has been changed successfully!');
-							redirect('admin/changepassword');
+							//redirect('admin/changepassword');
 						}
 
 					}
@@ -212,8 +213,10 @@ class AdminController extends CI_Controller
 			}
 		}
 
-		$this->data['page_title']='Bongtech | Change Password';
+		$this->data['page_title']=' Change Password';
 		$this->data['subview']='change_pass/index';
+		$this->data['logo_icons']=$this->CommonModel->RetriveRecordByWhereRow('tbl_logo',['status'=>'Active'],'image');
+		$this->data['foot_con'] = $this->CommonModel->RetriveRecordByWhereRow('tbl_contact',['status'=>'Active'],'footer_copy_right');
 		$this->load->view('admin/layout/default', $this->data);
 	}
 

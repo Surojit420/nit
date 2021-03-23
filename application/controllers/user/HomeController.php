@@ -11,10 +11,7 @@ class HomeController extends CI_Controller
 		$this->load->helper(array('common_helper', 'string', 'form', 'security','url','text'));
 		$this->load->library(array('form_validation', 'email'));
 		$this->load->model('CommonModel');
-		if($this->session->userdata('adminDetails')==NULL)
-		{
-		   return redirect('/');
-		}
+	
 				
 	} 
 	
@@ -28,6 +25,7 @@ class HomeController extends CI_Controller
 			'status'=>'Active'
 		);
 		$select='banner_name,image,description';
+		$this->data['logo']=$this->CommonModel->RetriveRecordByWhereRow('tbl_logo',$where_clause,'*');
 		$this->data['banner']=$this->CommonModel->RetriveRecordByWhere('tbl_banner',$where_clause,$select); 
 		$where_clause=array(
 			'status'=>'Active'
@@ -61,6 +59,7 @@ class HomeController extends CI_Controller
 		);
 		$select='name,description,location,experience';
 		$this->data['job_summary']=$this->CommonModel->RetriveRecordByWhere('tbl_job_summary',$where_clause,$select);
+		$this->data['contact']=$this->CommonModel->RetriveRecordByWhereRow('tbl_contact',$where_clause,'*');
 		$this->data['contact']=$this->CommonModel->RetriveRecordByWhereRow('tbl_contact',$where_clause,'*');
 		$this->data['email']=$this->CommonModel->RetriveRecordByWhereRow('tbl_contact',$where_clause,'*');
 		$this->data['address']=$this->CommonModel->RetriveRecordByWhereRow('tbl_contact',$where_clause,'*');

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class BusinessController extends CI_Controller 
+class JobApplayController extends CI_Controller 
 {
 	 
 	function __construct()
@@ -9,25 +9,19 @@ class BusinessController extends CI_Controller
 	  	parent::__construct(); 		
 		$this->load->helper(array('common_helper', 'string', 'form', 'security'));
 		$this->load->library(array('form_validation', 'email'));
-		$this->load->model('CommonModel');
-		if($this->session->userdata('adminDetails')==NULL)
-		{
-		   return redirect('/');
-		}		
+		$this->load->model('CommonModel');			
 
 	}	
 
-	public function business()
+	public function job_applay()
 	{
 		$this->db->where('status <>', 'Delete');
 		$this->db->order_by('id', 'desc');
-		$business_data=$this->db->get('tbl_business')->result();
-		$this->data['business_data']=$business_data;
+		$job_applay_data=$this->db->get('tbl_job_apply')->result();
+		$this->data['job_applay_data']=$job_applay_data;
 
-		$this->data['page_title']='NNIT | Business';
-		$this->data['subview']='business/business';
-		$this->data['logo_icons']=$this->CommonModel->RetriveRecordByWhereRow('tbl_logo',['status'=>'Active'],'image');
-		$this->data['foot_con'] = $this->CommonModel->RetriveRecordByWhereRow('tbl_contact',['status'=>'Active'],'footer_copy_right');
+		$this->data['page_title']='NNIT | Job Apply';
+		$this->data['subview']='job_applay/job_applay';
 		$this->load->view('admin/layout/default', $this->data);
 	}
 

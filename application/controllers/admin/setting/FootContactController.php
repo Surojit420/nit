@@ -10,7 +10,10 @@ class FootContactController extends CI_Controller
 		$this->load->helper(array('common_helper', 'string', 'form', 'security'));
 		$this->load->library(array('form_validation', 'email'));
 		$this->load->model('CommonModel');
-			
+		if($this->session->userdata('adminDetails')==NULL)
+		{
+		   return redirect('/');
+		}			
 
 	}	
 
@@ -23,6 +26,8 @@ class FootContactController extends CI_Controller
 
 		$this->data['page_title']='NNIT | footer Contact';
 		$this->data['subview']='setting/footer_contact';
+		$this->data['logo_icons']=$this->CommonModel->RetriveRecordByWhereRow('tbl_logo',['status'=>'Active'],'image');
+		$this->data['foot_con'] = $this->CommonModel->RetriveRecordByWhereRow('tbl_contact',['status'=>'Active'],'footer_copy_right');
 		$this->load->view('admin/layout/default', $this->data);
 	}
 
@@ -41,10 +46,14 @@ class FootContactController extends CI_Controller
 		        $email=$this->input->post('email');
 		        $footer_copy_right=$this->input->post('footer_copy_right');
 		        $address=$this->input->post('address');
-		        $about_us=$this->input->post('about_us');
-		        $contact_us=$this->input->post('contact_us');
-		        $contact_map=$this->input->post('contact_map');
-        		$data=array(
+		        $about_us = $this->input->post('about_us');
+		        $contact_us = $this->input->post('contact_us');
+		        $contact_map = $this->input->post('contact_map');
+		        $facebook = $this->input->post('facebook');
+		        $linkedin = $this->input->post('linkedin');
+		        $twitter = $this->input->post('twitter');
+		        $instagram = $this->input->post('instagram');
+		        $data=array(
 				'uniqcode' => random_string('alnum',30),
 				'phone_no' => $phone_no,
 				'email' => $email,
@@ -53,6 +62,7 @@ class FootContactController extends CI_Controller
 				'about_us'=> $about_us,
 				'contact_us'=> $contact_us,
 				'contact_map' => $contact_map,
+				'link' => serialize(array('facebook' => $facebook,'twitter' =>  $twitter,'linkedin' => $linkedin,'instagram' =>$instagram)),
 				'datetime' => date('Y-m-d H:i:s')
 				);
 				$this->db->where('status', 'Active');
@@ -212,8 +222,30 @@ class FootContactController extends CI_Controller
                                            <label>Contact Map Iframe</label>
                                            <textarea rows="2" cols="30" style="resize: none;"  name="contact_map" id="contact_map" class="form-control" data-errormessage-value-missing="Contact map iframe" data-prompt-position="bottomLeft"placeholder="Enter map iframe" >'.$contact_row->contact_map.'</textarea> 
                                        </div> 
+                                    </div>';
+  								 
+                                   
+                                      $social=array();
+                                      $social= unserialize($contact_row->link);
+                                     
+                                    foreach ($social as $keys => $values) {
+                                   
+                                    echo '<div class="col-lg-6">
+                                        <div class="form-group">
+                                            Icones
+                                        <select class="form-control form-control-lg selectpicker" name="<?=$keys?>">
+                                            <option selected="true" data-content="<i class="fa fa'.$keys.'" aria-hidden="true"></i> <?=$keys?>" ></option> 
+                                        </select>
+                                    </div> 
                                     </div>
-                                </div>
+                                     <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Link</label>
+                                            <input type="text" name="<?=$keys?>" id="link" class="form-control validate[required]" data-errormessage-value-missing="link is required" data-prompt-position="bottomLeft" placeholder="<?=$key?> link" maxlength="200" value="'.$value.'">     
+                                        </div>
+                                    </div>';
+                                  }
+           				echo'</div>
                                 <div class="col-sm-12">
                                     <button class="btn btn-warning btn-primary pull-right m-t-n-xs grediant-btn" type="reset"><strong>Cancel</strong></button>
                                     <button type="submit" class="btn btn-primary" style="margin-left: 756px;"><strong>Save<strong></button>

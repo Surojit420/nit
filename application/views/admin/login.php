@@ -63,7 +63,7 @@
                             </div>
                         </div> -->
                         <div class="form-group">
-                            <a class="forgot-text text-primary" href="#">Forgot Password?</a>
+                            <a class="forgot-text text-primary" href="<?=base_url('admin/forgot')?>">Forgot Password?</a>
                         </div>
                     </div>
                     <div class="text-center">

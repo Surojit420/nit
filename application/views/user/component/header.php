@@ -59,10 +59,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <div class="container">
         <div class="header-innerpart">
+          <?php if(!empty('$logo')){ ?>
           <a class="logo" href="<?=base_url()?>">
-            <img src="<?=base_url()?>webroot/user/images/logo.png">
-          </a>
+           
+           <img src="<?=base_url()?>webroot/admin/logo/web/<?=$logo->image?>">
 
+           </a>
+         <?php } 
+         ?>
           <div class="mobile-toggle">
               <span></span>
               <span></span>
