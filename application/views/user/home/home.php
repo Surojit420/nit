@@ -42,7 +42,8 @@ if(!empty($banner)){?>
 <?php } ?>
 
 
-<?php if(!empty($servics)){?>
+<?php 
+if(!empty($servics)){?>
     <!-- Our service section start -->
     <section id="our-service">
       <div class="our-service">
@@ -639,7 +640,7 @@ if(!empty($banner)){?>
                     ?>
                     </p>
                         
-                        <a href="<?=base_url('career')?>" class="btn_3 wow animate__animated animate__fadeInRight">apply</a>
+                        <a href="<?=base_url()?>career" class="btn_3 wow animate__animated animate__fadeInRight">apply</a>
                       </div>
                     <?php 
                       }

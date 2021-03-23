@@ -24,30 +24,27 @@
                 <h2 class="section-title wow animate__animated animate__fadeInDown">CURRENT <strong>OPENINGS</strong></h2>
               </div>
               <div class="container">
-                 <?php
-                      foreach ($job_summary as $key=> $job_summary_data) 
-                      {
-                    ?>
                 <div class="col-md-6 col-sm-6">
                   <div class="panel-group">
                     <div class="panel panel-default wow animate__animated animate__zoomIn">
                       <div class="panel-heading">
                         <h4 class="panel-title">
-                          <a data-toggle="collapse" href="#collapse<?=$key?>">
-                            <p class="job-tittle"><?=$job_summary_data->name?></p>
+                          <a data-toggle="collapse" href="#collapse1">
+                            <p class="job-tittle">Marketing Executive</p>
                           </a>
                         </h4>
                       </div>
-                      <div id="collapse<?=$key?>" class="panel-collapse collapse">
+                      <div id="collapse1" class="panel-collapse collapse">
                         <div class="job-card-inner">
                           <div class="row">
                             <div class="col-md-6">
-                              <p class="job-location"><i class="fa fa-map-marker" aria-hidden="true"></i><?=$job_summary_data->location?></p>
+                              <p class="job-location"><i class="fa fa-map-marker" aria-hidden="true"></i>Kolkata</p>
                             </div>
                             <div class="col-md-6">
                               <p class="experience"><span>Experience:</span> 1 to 5 years</p>
                             </div>
                           </div>
+                            
                           <p class="description">Job Description</p>
                           <ul>
                             <li><p>Must have experience in handling bidding portals like freelancer.com, Guru.com, upwork.com</p></li>
@@ -60,8 +57,105 @@
                   </div>
                   
                 </div>
-              <?php } ?>
-              
+                <div class="col-md-6 col-sm-6">
+                  <div class="panel-group">
+                    <div class="panel panel-default wow animate__animated animate__zoomIn">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">
+                          <a data-toggle="collapse" href="#collapse2">
+                            <p class="job-tittle">Full Stack Developer</p>
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="collapse2" class="panel-collapse collapse">
+                        <div class="job-card-inner">
+                          <div class="row">
+                            <div class="col-md-6">
+                              <p class="job-location"><i class="fa fa-map-marker" aria-hidden="true"></i>Kolkata</p>
+                            </div>
+                            <div class="col-md-6">
+                              <p class="experience"><span>Experience:</span> 1 to 5 years</p>
+                            </div>
+                          </div>
+                            
+                          <p class="description">Job Description</p>
+                          <ul>
+                            <li><p>Must have experience in handling bidding portals like freelancer.com, Guru.com, upwork.com</p></li>
+                            <li><p>Experience in bidding with LinkedIn, Facebook.</p></li>
+                            <li><p>Should have knowledge of email marketing and follow-up with the client’s response.</p></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                  <div class="panel-group">
+                    <div class="panel panel-default wow animate__animated animate__zoomIn">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">
+                          <a data-toggle="collapse" href="#collapse3">
+                            <p class="job-tittle">Android application developer</p>
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="collapse3" class="panel-collapse collapse">
+                        <div class="job-card-inner">
+                          
+                          <div class="row">
+                            <div class="col-md-6">
+                              <p class="job-location"><i class="fa fa-map-marker" aria-hidden="true"></i>Kolkata</p>
+                            </div>
+                            <div class="col-md-6">
+                              <p class="experience"><span>Experience:</span> 1 to 5 years</p>
+                            </div>
+                          </div>
+                            
+                          <p class="description">Job Description</p>
+                          <ul>
+                            <li><p>Must have experience in handling bidding portals like freelancer.com, Guru.com, upwork.com</p></li>
+                            <li><p>Experience in bidding with LinkedIn, Facebook.</p></li>
+                            <li><p>Should have knowledge of email marketing and follow-up with the client’s response.</p></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                  <div class="panel-group">
+                    <div class="panel panel-default wow animate__animated animate__zoomIn">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">
+                          <a data-toggle="collapse" href="#collapse4">
+                            <p class="job-tittle">Telecaller Executive</p>
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="collapse4" class="panel-collapse collapse">
+                        <div class="job-card-inner">
+                          
+                          <div class="row">
+                            <div class="col-md-6">
+                              <p class="job-location"><i class="fa fa-map-marker" aria-hidden="true"></i>Kolkata</p>
+                            </div>
+                            <div class="col-md-6">
+                              <p class="experience"><span>Experience:</span> 1 to 5 years</p>
+                            </div>
+                          </div>
+                            
+                          <p class="description">Job Description</p>
+                          <ul>
+                            <li><p>Must have experience in handling bidding portals like freelancer.com, Guru.com, upwork.com</p></li>
+                            <li><p>Experience in bidding with LinkedIn, Facebook.</p></li>
+                            <li><p>Should have knowledge of email marketing and follow-up with the client’s response.</p></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
               </div>
             </div>
           </section>
