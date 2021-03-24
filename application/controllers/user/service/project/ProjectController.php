@@ -23,9 +23,11 @@ class ProjectController extends CI_Controller
 		);
 		$select='uniqcode,services_name,services_icon,description';
 		$this->data['servics']=$this->CommonModel->RetriveRecordByWhere('tbl_services',$where_clause,$select);
+		$this->data['company_address']=$this->CommonModel->RetriveRecordByWhereRow('tbl_contact',['status'=>'Active'],'*');
+		$this->data['logo']=$this->CommonModel->RetriveRecordByWhereRow('tbl_logo',['status'=>'Active'],'*');
 		$this->data['page_title']='NIT | Portfolio';
 		$this->data['subview']='project/projects';
-		//pr($this->data);
+		//pr($this->data);z
 		$this->load->view('user/layout/default', $this->data);
 	}
 

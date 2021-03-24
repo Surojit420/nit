@@ -91,89 +91,37 @@
     <!-- Leading industries end -->
 
     <!-- -------Our works start------- -->
-    <!-- <section id="our-works">
+    <section id="our-works">
       <div class="our-works project-page">
         <div class="title-upperpart">
           <h2 class="section-title wow animate__animated animate__fadeInDown">OUR <strong>STUNNING PROJECTS</strong></h2>
         </div>
         <div class="container">
           <div class="row">
+<?php 
+// print_r($Portfolio);
+ if(!empty($Portfolio))
+{
+foreach ($Portfolio as $key => $value) {
+?>
             <div class="col-md-4 col-sm-6">
               <div class="work-item">
                 <div class="card transition">
-                  <h2 class="transition wow animate__animated animate__fadeInLeft">GST STORE 99</h2>
-                  <p class="wow animate__animated animate__fadeInRight">Aenean lacinia bibendum nulla sed consectetur. Donec ullamcorper nulla non metus auctor fringilla.</p>
-                  <div class="cta-container transition"><a href="#" class="btn_2">Have a look</a></div>
+                  <h2 class="transition wow animate__animated animate__fadeInLeft"><?=$value->project_name?></h2>
+                  <p class="wow animate__animated animate__fadeInRight"><?=$value->description?></p>
+                  <div class="cta-container transition"><a href="<?=$value->project_link?>" class="btn_2">Have a look</a></div>
                   <div class="card_circle transition">
-                    <img src="<?=base_url()?>webroot/user/images/work-1.png">
+                    <img src="<?=base_url()?>webroot/admin/portfolio/<?=$value->image?>">
                   </div>
                 </div>
               </div>
             </div>
-            <div class="col-md-4 col-sm-6">
-              <div class="work-item">
-                <div class="card transition">
-                  <h2 class="transition wow animate__animated animate__fadeInLeft">SafetyPoint</h2>
-                  <p class="wow animate__animated animate__fadeInRight">Aenean lacinia bibendum nulla sed consectetur. Donec ullamcorper nulla non metus auctor fringilla.</p>
-                  <div class="cta-container transition"><a href="#" class="btn_2">Have a look</a></div>
-                  <div class="card_circle transition">
-                    <img src="<?=base_url()?>webroot/user/images/work-2.png">
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-              <div class="work-item">
-                <div class="card transition">
-                  <h2 class="transition wow animate__animated animate__fadeInLeft">Digi world</h2>
-                  <p class="wow animate__animated animate__fadeInRight">Aenean lacinia bibendum nulla sed consectetur. Donec ullamcorper nulla non metus auctor fringilla.</p>
-                  <div class="cta-container transition"><a href="#" class="btn_2">Have a look</a></div>
-                  <div class="card_circle transition">
-                    <img src="<?=base_url()?>webroot/user/images/work-3.png">
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-              <div class="work-item">
-                <div class="card transition">
-                  <h2 class="transition wow animate__animated animate__fadeInLeft">Arup Dasgupta</h2>
-                  <p class="wow animate__animated animate__fadeInRight">Aenean lacinia bibendum nulla sed consectetur. Donec ullamcorper nulla non metus auctor fringilla.</p>
-                  <div class="cta-container transition"><a href="#" class="btn_2">Have a look</a></div>
-                  <div class="card_circle transition">
-                    <img src="<?=base_url()?>webroot/user/images/work-4.jpg">
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-              <div class="work-item">
-                <div class="card transition">
-                  <h2 class="transition wow animate__animated animate__fadeInLeft">GST STORE 99</h2>
-                  <p class="wow animate__animated animate__fadeInRight">Aenean lacinia bibendum nulla sed consectetur. Donec ullamcorper nulla non metus auctor fringilla.</p>
-                  <div class="cta-container transition"><a href="#" class="btn_2">Have a look</a></div>
-                  <div class="card_circle transition">
-                    <img src="<?=base_url()?>webroot/user/images/work-1.png">
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-              <div class="work-item">
-                <div class="card transition">
-                  <h2 class="transition wow animate__animated animate__fadeInLeft">SafetyPoint</h2>
-                  <p class="wow animate__animated animate__fadeInRight">Aenean lacinia bibendum nulla sed consectetur. Donec ullamcorper nulla non metus auctor fringilla.</p>
-                  <div class="cta-container transition"><a href="#" class="btn_2">Have a look</a></div>
-                  <div class="card_circle transition">
-                    <img src="<?=base_url()?>webroot/user/images/work-2.png">
-                  </div>
-                </div>
-              </div>
-            </div>
+          <?php } }?>
+
           </div>
         </div>
       </div>
-    </section> -->
+    </section>
     <!-- Our works end -->
 
 

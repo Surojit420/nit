@@ -244,6 +244,7 @@ class ServicesController extends CI_Controller
 		
 			if ($this->form_validation->run())
             {  
+            	
             		$uniqcode=$this->input->post('uniqcode');
               	    $services_name=$this->input->post('services_name');
         			$this->db->where('status <>', 'Delete');

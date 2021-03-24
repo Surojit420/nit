@@ -86,7 +86,7 @@
                                         <td><div><?=$value->services_name?></div></td>
                                         <td><?=$value->services_name?></td>
                                         <td>
-                                            <img src="<?= base_url('webroot/admin/services_banner/'.$value->services_images)?>" class="showTableImage" id="product_img">
+                                            <img src="<?=base_url('webroot/admin/services_banner/'.$value->services_images)?>" class="showTableImage" id="product_img">
                                         </td>
                                         <td>
                                             <img src="<?= base_url('webroot/admin/services_icon/'.$value->services_icon)?>" class="showTableImage" id="product_img">

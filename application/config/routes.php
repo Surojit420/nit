@@ -5,7 +5,7 @@ $route['default_controller'] = 'user/HomeController';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['portfolio'] = 'user/project/ProjectController/index';
-$route['service/([a-zA-Z0-9]+)'] = 'user/service/ServiceController/index/$1';
+$route['service-(:any)'] = 'user/service/ServiceController/index/$1/$1';
 $route['about-us'] = 'user/about/AboutController/index';
 $route['contact-us'] = 'user/contact/ContactController/index';
 $route['career'] = 'user/moreinfo/MoreInfoController/career';
