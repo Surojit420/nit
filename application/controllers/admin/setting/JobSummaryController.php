@@ -162,6 +162,7 @@ class JobSummaryController extends CI_Controller
     	);
 	  	$this->db->where('uniqcode', $uniqcode);
 	  	$this->db->update('tbl_job_summary', $data);
+	  	
 	 	$this->session->set_flashdata('success', 'Job Summary deleted successfully');                     
 	 	redirect('admin/job_summary');
 	}

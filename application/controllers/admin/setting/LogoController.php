@@ -277,6 +277,21 @@ class LogoController extends CI_Controller
     	);
 	  	$this->db->where('uniqcode', $uniqcode);
 	  	$this->db->update('tbl_logo', $data);
+	  	$delete_pic=$this->CommonModel->RetriveRecordByWhereRow('tbl_logo',['uniqcode'=>$uniqcode],'image');
+	  	$old_image=$delete_pic->image;
+
+	  	$file = FCPATH.'/webroot/admin/logo/mobile/'.$old_image;
+	  	// pr($file);
+	  	// die();
+		if(file_exists($file))
+		{
+			unlink($file);
+		}
+		$file = FCPATH.'/webroot/admin/logo/web/'.$old_image;
+		if(file_exists($file))
+		{
+			unlink($file);
+		}
 	 	$this->session->set_flashdata('success', 'Logo deleted successfully');                     
 	 	redirect('admin/logo');
 	}

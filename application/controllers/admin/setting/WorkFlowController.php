@@ -296,6 +296,13 @@ class WorkFlowController extends CI_Controller
     	);
 	  	$this->db->where('uniqcode', $uniqcode);
 	  	$this->db->update('tbl_work_flow', $data);
+	  	$delete_pic=$this->CommonModel->RetriveRecordByWhereRow('tbl_work_flow',['uniqcode'=>$uniqcode],'image');
+	  	$old_image=$delete_pic->image;
+	  	$file = FCPATH.'/webroot/admin/workflow/'.$old_image;
+		if(file_exists($file))
+		{
+			unlink($file);
+		}
 	 	$this->session->set_flashdata('success', 'Workflow deleted successfully');                     
 	 	redirect('admin/workflow');
 	}

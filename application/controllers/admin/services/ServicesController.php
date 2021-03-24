@@ -283,6 +283,19 @@ class ServicesController extends CI_Controller
     	);
 	  	$this->db->where('uniqcode', $uniqcode);
 	  	$this->db->update('tbl_services', $data);
+	  	$delete_pic=$this->CommonModel->RetriveRecordByWhereRow('tbl_services',['uniqcode'=>$uniqcode],'services_icons,services_images');
+	  	$old_image=$delete_pic->services_icons;
+	  	$old_image1=$delete_pic->services_images;
+	  	$file = FCPATH.'/webroot/admin/services_icon/'.$old_image;
+		if(file_exists($file))
+		{
+			unlink($file);
+		}
+		$file = FCPATH.'/webroot/admin/services_banner/'.$old_image1;
+		if(file_exists($file))
+		{
+			unlink($file);
+		}
 	 	$this->session->set_flashdata('success', 'Services name deleted successfully');                     
 	 	redirect('admin/services');
 	}
