@@ -23,8 +23,11 @@ class AboutController extends CI_Controller
 		);
 		$select='uniqcode,services_name,services_icon,description';
 		$this->data['servics']=$this->CommonModel->RetriveRecordByWhere('tbl_services',$where_clause,$select);
+		$this->data['company_address']=$this->CommonModel->RetriveRecordByWhereRow('tbl_contact',['status'=>'Active'],'*');
+		$this->data['logo']=$this->CommonModel->RetriveRecordByWhereRow('tbl_logo',['status'=>'Active'],'*');
 		$this->data['page_title']='NIT | About';
 		$this->data['subview']='about/about';
+		$this->data['logo']=$this->CommonModel->RetriveRecordByWhereRow('tbl_logo',$where_clause,'*');
 		$this->load->view('user/layout/default', $this->data);
 	}
 

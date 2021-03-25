@@ -21,6 +21,17 @@ class MoreInfoController extends CI_Controller
 		);
 		$select='uniqcode,services_name,services_icon,description';
 		$this->data['servics']=$this->CommonModel->RetriveRecordByWhere('tbl_services',$where_clause,$select);
+
+		$select='*';
+		$where_clause=array(
+			'status'=>'Active'
+		);
+		$this->data['job_summary']=$this->CommonModel->RetriveRecordByWhere('tbl_job_summary',$where_clause,$select);
+		$this->data['contact']=$this->CommonModel->RetriveRecordByWhereRow('tbl_contact',$where_clause,'*');
+		$this->data['email']=$this->CommonModel->RetriveRecordByWhereRow('tbl_contact',$where_clause,'*');
+		$this->data['address']=$this->CommonModel->RetriveRecordByWhereRow('tbl_contact',$where_clause,'*');
+		$this->data['logo']=$this->CommonModel->RetriveRecordByWhereRow('tbl_logo',['status'=>'Active'],'*'); 
+		$this->data['company_address']=$this->CommonModel->RetriveRecordByWhereRow('tbl_contact',['status'=>'Active'],'*');
 		$this->data['page_title']='NIT | Career';
 		$this->data['subview']='career/career';
 		$this->load->view('user/layout/default', $this->data);
@@ -46,6 +57,11 @@ class MoreInfoController extends CI_Controller
 
 		$select='uniqcode,services_name,services_icon,description';
 		$this->data['servics']=$this->CommonModel->RetriveRecordByWhere('tbl_services',$where_clause,$select);
+		$this->data['logo']=$this->CommonModel->RetriveRecordByWhereRow('tbl_logo',['status'=>'Active'],'*');
+		$this->data['contact']=$this->CommonModel->RetriveRecordByWhereRow('tbl_contact',$where_clause,'*');
+		$this->data['email']=$this->CommonModel->RetriveRecordByWhereRow('tbl_contact',$where_clause,'*');
+		$this->data['address']=$this->CommonModel->RetriveRecordByWhereRow('tbl_contact',$where_clause,'*'); 
+		$this->data['company_address']=$this->CommonModel->RetriveRecordByWhereRow('tbl_contact',['status'=>'Active'],'*');
 		$this->data['page_title']='NIT | Quotetion';
 		$this->data['subview']='quotetion/quotetion';
 		$this->load->view('user/layout/default', $this->data);

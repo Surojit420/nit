@@ -187,30 +187,19 @@ if(!empty($servics)){?>
     </div>
     <div class="container">
       <div class="col-md-4 col-sm-4">
+        <?php foreach ($why_choose_frist as $key => $value) 
+        {
+         ?>
         <div class="choose-us-container">
           <div class="choose-us-wrapper">
               <div class="choose-us-wrapper-inner">
-                  <div class="choose-us-icon-wrapper wow animate__animated animate__rotateIn"><img src="<?=base_url()?>webroot/user/images/requirments2.png" alt="REQUIREMENT GATHERING"></div>
-                  <h4 class="choose-us-title wow animate__animated animate__backInRight">REQUIREMENT GATHERING</h4>
+                  <div class="choose-us-icon-wrapper wow animate__animated animate__rotateIn"><img src="<?=base_url()?>webroot/admin/choosenit/<?=$value->image?>" alt="<?=$value->name?>"></div>
+                  <h4 class="choose-us-title wow animate__animated animate__backInRight"><?=$value->name?></h4>
               </div>
           </div>
         </div>
-        <div class="choose-us-container">
-          <div class="choose-us-wrapper">
-              <div class="choose-us-wrapper-inner">
-                  <div class="choose-us-icon-wrapper wow animate__animated animate__rotateIn"><img src="<?=base_url()?>webroot/user/images/blue-printg2.png" alt="CHALKING OUT BLUEPRINT"></div>
-                  <h4 class="choose-us-title wow animate__animated animate__backInRight">CHALKING OUT BLUEPRINT</h4>
-              </div>
-          </div>
-        </div>
-        <div class="choose-us-container">
-          <div class="choose-us-wrapper">
-              <div class="choose-us-wrapper-inner">
-                  <div class="choose-us-icon-wrapper wow animate__animated animate__rotateIn"><img src="<?=base_url()?>webroot/user/images/ui-design2.png" alt="USER INTERFACE DESIGNING"></div>
-                  <h4 class="choose-us-title wow animate__animated animate__backInRight">USER INTERFACE DESIGNING</h4>
-              </div>
-          </div>
-        </div>
+      <?php } ?>
+        
       </div>
       <div class="col-md-4 col-sm-4">
         <div class="scene wow animate__animated animate__flipInY">
@@ -240,30 +229,34 @@ if(!empty($servics)){?>
         </div>
       </div>
       <div class="col-md-4 col-sm-4">
-        <div class="choose-us-container">
+        <!-- <div class="choose-us-container">
             <div class="choose-us-wrapper choose-us-wrapper-alignright">
                 <div class="choose-us-wrapper-inner">
                     <div class="choose-us-icon-wrapper wow animate__animated animate__rotateIn"><img src="<?=base_url()?>webroot/user/images/ui-development2.png" alt="USER INTERFACE DEVELOPMENT"></div>
                     <h4 class="choose-us-title wow animate__animated animate__backInLeft">USER INTERFACE DEVELOPMENT</h4>
                 </div>
             </div>
-        </div>
+        </div> -->
+         <?php foreach ($why_choose_last as $key => $value) 
+        {
+         ?>
         <div class="choose-us-container">
             <div class="choose-us-wrapper choose-us-wrapper-alignright">
                 <div class="choose-us-wrapper-inner">
-                    <div class="choose-us-icon-wrapper wow animate__animated animate__rotateIn"><img src="<?=base_url()?>webroot/user/images/Project_development.png" alt="PROJECT DEVELOPMENT"></div>
-                    <h4 class="choose-us-title wow animate__animated animate__backInLeft">PROJECT DEVELOPMENT</h4>
+                    <div class="choose-us-icon-wrapper wow animate__animated animate__rotateIn"><img src="<?=base_url()?>webroot/admin/choosenit/<?=$value->image?>" alt="<?=$value->name?>"></div>
+                    <h4 class="choose-us-title wow animate__animated animate__backInLeft"><?=$value->name?></h4>
                 </div>
             </div>
         </div>
-        <div class="choose-us-container">
+      <?php } ?>
+        <!-- div class="choose-us-container">
             <div class="choose-us-wrapper choose-us-wrapper-alignright">
                 <div class="choose-us-wrapper-inner">
                     <div class="choose-us-icon-wrapper wow animate__animated animate__rotateIn"><img src="<?=base_url()?>webroot/user/images/testing-debugging2.png" alt="TESTING & DEBUGGING"></div>
                     <h4 class="choose-us-title wow animate__animated animate__backInLeft">TESTING & DEBUGGING</h4>
                 </div>
             </div>
-        </div>
+        </div> -->
       </div>
       <div class="col-md-12 col-sm-12">
         <p class="choose-us-desc wow animate__animated animate__backInUp">
@@ -600,7 +593,7 @@ if(!empty($servics)){?>
                   <div class="job-card">
                     
                     <?php
-                      foreach ($job_summary as $key => $job_summary_data) 
+                      foreach ($job_summary as $job_summary_data) 
                       {
                     ?>
                       <div class="job-card-inner">
@@ -614,33 +607,9 @@ if(!empty($servics)){?>
                           </div>
                         </div>
                           
-                        <p class="description wow animate__animated animate__fadeInLeft">
-
-                      <?php
-                     // echo $job_summary_data->description;
-                    if(!empty($job_summary_data->description))
-                    {  
-                      $testing_details = word_limiter($job_summary_data->description,7, '');
-
-                    ?>
-                      <span id="more_<?=$key?>">
-                        <?php
-                            echo $testing_details.'...'; 
-                            echo '<a href="javascript:void(0)" onclick="show_more(\''.$key.'\')" style="color: cornflowerblue;">more</a>';
-                        ?>
-                      </span>
-                      <span id="less_<?=$key?>" style="display:none" >
-                          <?php
-                                  echo  $job_summary_data->description;
-                                  echo '<a onclick="show_less(\''.$key.'\')" href="javascript:void(0)" style="color: cornflowerblue;">less</a>';  
-                          ?>
-                      </span>
-                    <?php
-                    }
-                    ?>
-                    </p>
+                        <p class="description wow animate__animated animate__fadeInLeft"><?=$job_summary_data->description?></p>
                         
-                        <a href="<?=base_url()?>career" class="btn_3 wow animate__animated animate__fadeInRight">apply</a>
+                         <a href="<?=base_url('career')?>" class="btn_3 wow animate__animated animate__fadeInRight">apply</a>
                       </div>
                     <?php 
                       }
@@ -655,11 +624,11 @@ if(!empty($servics)){?>
                   </div>
                   <div class="contact-us-innerpart">
                     <p class="contact-us-header wow animate__animated animate__fadeInUp">Office</p>
-                    <p class="contact-us-desc wow animate__animated animate__fadeInUp"><?=$address->address?></p>
+                    <p class="contact-us-desc wow animate__animated animate__fadeInUp"><?=$company_address->address?></p>
                     <p class="contact-us-header wow animate__animated animate__fadeInUp">Call us</p>
-                    <p class="contact-us-desc wow animate__animated animate__fadeInUp"><?=$contact->phone_no?></p>
+                    <p class="contact-us-desc wow animate__animated animate__fadeInUp"><?=$company_address->phone_no?></p>
                     <p class="contact-us-header wow animate__animated animate__fadeInUp">Email us</p>
-                    <p class="contact-us-desc wow animate__animated animate__fadeInUp"><?=$email->email?></p>
+                    <p class="contact-us-desc wow animate__animated animate__fadeInUp"><?=$company_address->email?></p>
                     <ul class="social-icons">
                       <li>
                         <a class="facebook wow animate__animated animate__heartBeat" target="_blank" href="https://www.facebook.com/nit.solution.pvt.ltd"><i class="fa fa-facebook" aria-hidden="true"></i></a>

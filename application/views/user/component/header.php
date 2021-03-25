@@ -9,7 +9,9 @@
 	
     <title><?=$page_title?></title>
     <!-- =========== STYLESHEETS ============== -->
-    <link rel="icon" href="<?=base_url()?>webroot/user/images/logo-icon.png" type="image/x-icon" sizes="16x16">
+    <?php if(!empty($logo)) { ?>
+    <link rel="icon" href="<?=base_url()?>webroot/admin/logo/web/<?=$logo->image?>" type="image/x-icon" sizes="16x16">
+  <?php } ?>
     <link rel="stylesheet" href="<?=base_url()?>webroot/user/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?=base_url()?>webroot/user/css/slick.css" type="text/css"> <!-- slick slider -->
     <link rel="stylesheet" href="<?=base_url()?>webroot/user/css/slick-theme.css" type="text/css"> <!-- slick slider -->
@@ -40,7 +42,7 @@
     <header class="main_h sticky">
       <div class="container">
         <div class="header-innerpart">
-          <?php if(!empty('$logo')){ ?>
+          <?php if(!empty($logo)){ ?>
           <a class="logo" href="<?=base_url()?>">
            
            <img src="<?=base_url()?>webroot/admin/logo/web/<?=$logo->image?>">
@@ -65,10 +67,11 @@
                     </a>
                     <ul class="sub-menus">
                       <?php
+
                         foreach ($servics as $servics_data) 
                         {
                       ?> 
-                      <li><a href="<?=base_url('service/'.$servics_data->uniqcode)?>"><?=$servics_data->services_name?></a></li>
+                      <li><a href="<?=base_url()?>service-<?php echo str_replace(' ','-',preg_replace('/[&]+/','and',strtolower($servics_data->services_name))); ?>"><?=$servics_data->services_name?></a></li>
                       <?php
                         }
                       ?>

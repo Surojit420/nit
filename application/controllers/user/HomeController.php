@@ -8,7 +8,7 @@ class HomeController extends CI_Controller
 	  	parent::__construct(); 		
 	  	$this->db->query("SET sql_mode=(SELECT REPLACE(@@sql_mode, 'ONLY_FULL_GROUP_BY', ''));");	
 	  	date_default_timezone_set('Asia/Kolkata');
-		$this->load->helper(array('common_helper', 'string', 'form', 'security','url','text'));
+		$this->load->helper(array('common_helper', 'string', 'form', 'security','url','text_helper'));
 		$this->load->library(array('form_validation', 'email'));
 		$this->load->model('CommonModel');
 	
@@ -25,7 +25,6 @@ class HomeController extends CI_Controller
 			'status'=>'Active'
 		);
 		$select='banner_name,image,description';
-		$this->data['logo']=$this->CommonModel->RetriveRecordByWhereRow('tbl_logo',$where_clause,'*');
 		$this->data['banner']=$this->CommonModel->RetriveRecordByWhere('tbl_banner',$where_clause,$select); 
 		$where_clause=array(
 			'status'=>'Active'
@@ -59,11 +58,11 @@ class HomeController extends CI_Controller
 		);
 		$select='name,description,location,experience';
 		$this->data['job_summary']=$this->CommonModel->RetriveRecordByWhere('tbl_job_summary',$where_clause,$select);
-		$this->data['contact']=$this->CommonModel->RetriveRecordByWhereRow('tbl_contact',$where_clause,'*');
-		$this->data['contact']=$this->CommonModel->RetriveRecordByWhereRow('tbl_contact',$where_clause,'*');
-		$this->data['email']=$this->CommonModel->RetriveRecordByWhereRow('tbl_contact',$where_clause,'*');
-		$this->data['address']=$this->CommonModel->RetriveRecordByWhereRow('tbl_contact',$where_clause,'*');
-		$this->data['page_title']='NIT | Home';
+		$this->data['company_address']=$this->CommonModel->RetriveRecordByWhereRow('tbl_contact',['status'=>'Active'],'*');
+		$this->data['logo']=$this->CommonModel->RetriveRecordByWhereRow('tbl_logo',['status'=>'Active'],'*');
+		$this->data['why_choose_frist']=$this->CommonModel->RetriveRecordByWhereOrderbyLimit('tbl_why_choose',['status'=> 'Active'],'3','1','id','desc');
+		$this->data['why_choose_last']=$this->CommonModel->RetriveRecordByWhereOrderbyLimit('tbl_why_choose',['status'=> 'Active'],'3','3','id','desc');
+		$this->data['page_title']='Best IT Solution Company in Kolkata | NIT Solution Pvt. Ltd.';
 		$this->data['subview']='home/home';
 		//pr($this->data);
 		//$this->load->view('user/home/home', $this->data);
