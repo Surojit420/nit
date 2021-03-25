@@ -399,6 +399,13 @@ class FootContactController extends CI_Controller
     	);
 	  	$this->db->where('uniqcode', $uniqcode);
 	  	$this->db->update('tbl_contact', $data);
+	  	$delete_pic=$this->CommonModel->RetriveRecordByWhereRow('tbl_contact',['uniqcode'=>$uniqcode],'image');
+	  	$old_image=$delete_pic->image;
+	  	$file = FCPATH.'/webroot/admin/contact/'.$old_image;
+		if(file_exists($file))
+		{
+			unlink($file);
+		}
 	 	$this->session->set_flashdata('success', 'Contact deleted successfully');                     
 	 	redirect('admin/footer_contact');
 	}

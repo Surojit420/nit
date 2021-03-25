@@ -297,6 +297,13 @@ class VisionController extends CI_Controller
     	);
 	  	$this->db->where('uniqcode', $uniqcode);
 	  	$this->db->update('tbl_vision', $data);
+	  	$delete_pic=$this->CommonModel->RetriveRecordByWhereRow('tbl_vision',['uniqcode'=>$uniqcode],'image');
+	  	$old_image=$delete_pic->image;
+		$file = FCPATH.'/webroot/admin/vision/'.$old_image;
+		if(file_exists($file))
+		{
+			unlink($file);
+		}
 	 	$this->session->set_flashdata('success', 'Vision deleted successfully');                     
 	 	redirect('admin/vision');
 	}

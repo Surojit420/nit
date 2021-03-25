@@ -295,6 +295,13 @@ class TechnologiesController extends CI_Controller
     	);
 	  	$this->db->where('uniqcode', $uniqcode);
 	  	$this->db->update('tbl_technologies', $data);
+	  	$delete_pic=$this->CommonModel->RetriveRecordByWhereRow('tbl_technologies',['uniqcode'=>$uniqcode],'image');
+	  	$old_image=$delete_pic->image;
+	  	$file = FCPATH.'/webroot/admin/technologies/'.$old_image;
+		if(file_exists($file))
+		{
+			unlink($file);
+		}
 	 	$this->session->set_flashdata('success', 'Technologies deleted successfully');                     
 	 	redirect('admin/technologies');
 	}
