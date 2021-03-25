@@ -622,6 +622,9 @@ if(!empty($servics)){?>
                   <div class="title-upperpart">
                     <h2 class="section-title wow animate__animated animate__fadeInDown">Reach <strong>Us</strong></h2>
                   </div>
+                  <?php if(!empty($company_address))
+                  {
+                  ?>
                   <div class="contact-us-innerpart">
                     <p class="contact-us-header wow animate__animated animate__fadeInUp">Office</p>
                     <p class="contact-us-desc wow animate__animated animate__fadeInUp"><?=$company_address->address?></p>
@@ -641,6 +644,7 @@ if(!empty($servics)){?>
                       </li>
                     </ul>
                   </div>
+                <?php  } ?>
                 </div>
               </div>
             </div>
