@@ -34,9 +34,9 @@
                         <label for="name">Name:<span style="color: red">*</span></label>
                       </div>
                     </div>
-                    <div class="col-md-6">
+                     <div class="col-md-6">
                       <div class="input-field wow animate__animated animate__slideInUp">
-                        <input type="email" id="email" name="email" required />
+                        <input type="text" id="email" name="email" required />
                         <label for="email">Email:<span style="color: red">*</span></label>
                       </div>
                     </div>

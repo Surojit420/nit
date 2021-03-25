@@ -49,7 +49,7 @@ class MoreInfoController extends CI_Controller
 		$this->load->view('user/layout/default', $this->data);
 	}
 
-	public function quotetion()
+	public function quotation()
 	{
 		$where_clause=array(
 			'status'=>'Active'
@@ -62,8 +62,8 @@ class MoreInfoController extends CI_Controller
 		$this->data['email']=$this->CommonModel->RetriveRecordByWhereRow('tbl_contact',$where_clause,'*');
 		$this->data['address']=$this->CommonModel->RetriveRecordByWhereRow('tbl_contact',$where_clause,'*'); 
 		$this->data['company_address']=$this->CommonModel->RetriveRecordByWhereRow('tbl_contact',['status'=>'Active'],'*');
-		$this->data['page_title']='NIT | Quotetion';
-		$this->data['subview']='quotetion/quotetion';
+		$this->data['page_title']='NIT | Quotation';
+		$this->data['subview']='quotation/quotation';
 		$this->load->view('user/layout/default', $this->data);
 	}
 

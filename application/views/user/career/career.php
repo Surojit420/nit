@@ -17,12 +17,13 @@
               </div>
             </div>
           </div>
-
+           <?php if(!empty($job_summary)) { ?>
           <section id="current-opening">
             <div class="current-opening">
               <div class="title-upperpart">
                 <h2 class="section-title wow animate__animated animate__fadeInDown">CURRENT <strong>OPENINGS</strong></h2>
               </div>
+             
               <div class="container">
                  <?php
                       foreach ($job_summary as $key=> $job_summary_data) 
@@ -61,8 +62,10 @@
                 </div>
                 <?php } ?>
               </div>
+
             </div>
           </section>
+           <?php } ?>
  <div class="php-development">
             <div class="container">
               <div class="quotation-form-innerpart">
