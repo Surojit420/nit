@@ -139,11 +139,12 @@ if(!empty($servics)){?>
 <!-- Counters section end -->
 
 
-<?php if(!empty($mission)){?>
+<?php if(!empty($mission) || (!empty($vision))) { ?>
     <!-- Our vision Our mission start -->
     <section id="our-mission">
       <div class="our-mission">
         <div class="container">
+          <?php if(!empty($mission) ){?>
           <div class="row">
             <div class="col-md-6 col-sm-6">
               <div class="mission-image-outer">
@@ -157,7 +158,9 @@ if(!empty($servics)){?>
                 <?=$mission->description?>
               </p>
             </div> 
-          </div> 
+          </div>
+        <?php } ?>
+        <?php if(!empty($vision)) { ?>
           <div class="row rev-order">
             <div class="col-md-6 col-sm-6">
               <h2 class="section-title wow animate__animated animate__fadeInDown">OUR <strong>VISION</strong></h2>
@@ -170,14 +173,14 @@ if(!empty($servics)){?>
                 <img src="<?=ADMIN_PATH.'webroot/admin/vision/'.$vision->image?>">
               </div>
             </div>
-          </div>      
-
+          </div> 
+          <?php } ?>     
         </div>
       </div>
+
     </section>
     <!-- Our vision our mission end -->
 <?php } ?>
-
 
 <!-- -----Why Choose us start------->
 <section id="choose-us">
@@ -185,6 +188,7 @@ if(!empty($servics)){?>
     <div class="title-upperpart">
       <h2 class="section-title wow animate__animated animate__fadeInDown">WHY CHOOSE <strong>NIT</strong></h2>
     </div>
+    <?php if(!empty($why_choose_frist)) { ?>
     <div class="container">
       <div class="col-md-4 col-sm-4">
         <?php foreach ($why_choose_frist as $key => $value) 
@@ -228,6 +232,7 @@ if(!empty($servics)){?>
           </div>
         </div>
       </div>
+      <?php if(!empty($why_choose_last)) {?>
       <div class="col-md-4 col-sm-4">
         <!-- <div class="choose-us-container">
             <div class="choose-us-wrapper choose-us-wrapper-alignright">
@@ -258,6 +263,7 @@ if(!empty($servics)){?>
             </div>
         </div> -->
       </div>
+    <?php } ?>
       <div class="col-md-12 col-sm-12">
         <p class="choose-us-desc wow animate__animated animate__backInUp">
           We provide an end to end online solutions from website designing and development, Custom software development to digital marketing/SEO service. We help the client in generating business and creating brand value. Our main strength is providing complete service with the best talent in the industry, you will get complete quality service. Our client knows us by the best web design and development company in Kolkata, India.
@@ -282,6 +288,7 @@ if(!empty($servics)){?>
       </div>
       
     </div>
+  <?php } ?>
   </div>
 </section>
 <!-- Why choose us end -->

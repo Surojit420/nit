@@ -85,7 +85,7 @@
                     <ul class="sub-menus">
                       <li><a href="<?=base_url('career')?>">Career</a></li>
                      <!--  <li><a href="<?=base_url('blog')?>">Blog</a></li> -->
-                      <li><a href="<?=base_url('quotetion')?>">Quotetion</a></li>
+                      <li><a href="<?=base_url('quotation')?>">Quotation</a></li>
                     </ul>
                   </li>
                   <li class="main-menu"><a class="menu" href="<?=base_url('about-us')?>">ABOUT US</a></li>
