@@ -15,7 +15,7 @@ class MissionController extends CI_Controller
 		   return redirect('/');
 		}
 	}	
-
+ 
 	public function mission()
 	{
 		$this->db->where('status <>', 'Delete');

@@ -181,7 +181,7 @@
                                                 ?>
                                             </span>
                                         </div>
-                                        <img src="<?=base_url()?>webroot/admin/images/user1.jpg" width="20" alt="" />
+                                        <img src="<?=base_url()?>webroot/admin/images/ICONS.png" width="20" alt="" />
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right">
                                         

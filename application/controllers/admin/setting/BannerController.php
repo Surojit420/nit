@@ -1,3 +1,4 @@
+
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -295,6 +296,13 @@ class BannerController extends CI_Controller
     	);
 	  	$this->db->where('uniqcode', $uniqcode);
 	  	$this->db->update('tbl_banner', $data);
+	  	$delete_pic=$this->CommonModel->RetriveRecordByWhereRow('tbl_banner',['uniqcode'=>$uniqcode],'image');
+	  	$old_image=$delete_pic->image;
+	  	$file = FCPATH.'/webroot/admin/banner/'.$old_image;
+		if(file_exists($file))
+		{
+			unlink($file);
+		}
 	 	$this->session->set_flashdata('success', 'Banner deleted successfully');                     
 	 	redirect('admin/banner');
 	}

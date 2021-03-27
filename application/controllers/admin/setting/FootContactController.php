@@ -50,7 +50,7 @@ class FootContactController extends CI_Controller
 		        $contact_us = $this->input->post('contact_us');
 		        $contact_map = $this->input->post('contact_map');
 		        $facebook = $this->input->post('facebook');
-		        $linkedin = $this->input->post('linkedin');
+		       // $linkedin = $this->input->post('linkedin');
 		        $twitter = $this->input->post('twitter');
 		        $instagram = $this->input->post('instagram');
 		        $data=array(
@@ -59,10 +59,10 @@ class FootContactController extends CI_Controller
 				'email' => $email,
 				'footer_copy_right' => $footer_copy_right,
 				'address'=> $address,
-				'about_us'=> $about_us,
+				'about_us'=> $about_us, 
 				'contact_us'=> $contact_us,
 				'contact_map' => $contact_map,
-				'link' => serialize(array('facebook' => $facebook,'twitter' =>  $twitter,'linkedin' => $linkedin,'instagram' =>$instagram)),
+				'link' => serialize(array('facebook' => $facebook,'twitter' =>  $twitter,'instagram' =>$instagram)),
 				'datetime' => date('Y-m-d H:i:s')
 				);
 				$this->db->where('status', 'Active');
@@ -222,10 +222,7 @@ class FootContactController extends CI_Controller
                                            <label>Contact Map Iframe</label>
                                            <textarea rows="2" cols="30" style="resize: none;"  name="contact_map" id="contact_map" class="form-control" data-errormessage-value-missing="Contact map iframe" data-prompt-position="bottomLeft"placeholder="Enter map iframe" >'.$contact_row->contact_map.'</textarea> 
                                        </div> 
-                                    </div>';
-  								 
-                                   
-                                      $social=array();
+                                    </div>';$social=array();
                                       $social= unserialize($contact_row->link);
                                      
                                     foreach ($social as $keys => $values) {
@@ -233,15 +230,15 @@ class FootContactController extends CI_Controller
                                     echo '<div class="col-lg-6">
                                         <div class="form-group">
                                             Icones
-                                        <select class="form-control form-control-lg selectpicker" name="<?=$keys?>">
-                                            <option selected="true" data-content="<i class="fa fa'.$keys.'" aria-hidden="true"></i> <?=$keys?>" ></option> 
+                                        <select class="form-control form-control-lg selectpicker" name="'.$keys.'"">
+                                            <option selected="true" data-content="<i class="fa fa-'.$keys.'" aria-hidden="true"></i>'.$keys.'>sdf</option> 
                                         </select>
                                     </div> 
                                     </div>
                                      <div class="col-lg-6">
                                         <div class="form-group">
                                             <label>Link</label>
-                                            <input type="text" name="<?=$keys?>" id="link" class="form-control validate[required]" data-errormessage-value-missing="link is required" data-prompt-position="bottomLeft" placeholder="<?=$key?> link" maxlength="200" value="'.$value.'">     
+                                            <input type="text" name="'.$keys.'"" id="link" class="form-control validate[required]" data-errormessage-value-missing="link is required" data-prompt-position="bottomLeft" placeholder="'.$keys.' link" maxlength="200" value="'.$values.'">     
                                         </div>
                                     </div>';
                                   }
@@ -257,8 +254,11 @@ class FootContactController extends CI_Controller
             </div>
             <script>
 				$(function () {
+				$( ".selectpicker" ).selectpicker( "refresh" );
 				$("#fot_contact").validationEngine();
+				
 				});
+
 			</script>
 		';
 
@@ -399,8 +399,8 @@ class FootContactController extends CI_Controller
     	);
 	  	$this->db->where('uniqcode', $uniqcode);
 	  	$this->db->update('tbl_contact', $data);
-	  	$delete_pic=$this->CommonModel->RetriveRecordByWhereRow('tbl_contact',['uniqcode'=>$uniqcode],'image');
-	  	$old_image=$delete_pic->image;
+	  	$delete_pic=$this->CommonModel->RetriveRecordByWhereRow('tbl_contact',['uniqcode'=>$uniqcode],'contact_images');
+	  	$old_image=$delete_pic->contact_images;
 	  	$file = FCPATH.'/webroot/admin/contact/'.$old_image;
 		if(file_exists($file))
 		{

@@ -1,4 +1,4 @@
-<div class="content-body">
+<div class="content-body"> 
     <div class="container-fluid">
         <div class="row">
             <div id="edit_data">
@@ -27,7 +27,7 @@
                                 </div>
                                 <div class="col-sm-12">
                                     <button class="btn btn-warning btn-primary pull-right m-t-n-xs grediant-btn" type="reset"><strong>Cancel</strong></button>
-                                    <button type="submit" class="btn btn-primary" style="margin-left: 756px;" onclick="checkchoosenit()"><strong>Save<strong></button>
+                                    <button type="submit" class="btn btn-primary" id="save_submit" style="margin-left: 756px;" onclick="checkchoosenit()"><strong>Save<strong></button>
                                 </div>
                             </form>
                         </div>

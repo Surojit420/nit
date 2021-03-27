@@ -191,14 +191,14 @@ class ServicesController extends CI_Controller
                                         <div class="form-group">
                                         	<label>Services Banner Images</label>
                                             <img src="'.base_url('webroot/admin/services_banner/'.$services_row->services_images.'').'" id="upload_services_banner" onclick="get_upload_services_banner()" class="add_img_button">
-                                                <input type="file" class="image-upload select_image" name="image" class="validate[required]" id="services_banner_input_upload" style="display: none" accept=".jpg,.jpeg,.png" onchange="services_banner_show_photo(this)">     
+                                                <input type="file" class="image-upload select_image" name="banner_image" class="validate[required]" id="services_banner_input_upload" style="display: none" accept=".jpg,.jpeg,.png" onchange="services_banner_show_photo(this)">     
                                         </div> 
                                     </div>
                                      <div class="col-lg-6">
                                         <div class="form-group">
                                         	<label>Services icon</label>
                                             <img src="'.base_url('webroot/admin/services_icon/'.$services_row->services_icon.'').'" id="upload_services_icon" onclick="get_upload_services_icon()" class="add_img_button">
-                                                <input type="file" class="image-upload select_image" name="image" class="validate[required]" id="services_icon_input_upload" style="display: none" accept=".jpg,.jpeg,.png" onchange="services_icon_show_photo(this)">     
+                                                <input type="file" class="image-upload select_image" name="icon_image" class="validate[required]" id="services_icon_input_upload" style="display: none" accept=".jpg,.jpeg,.png" onchange="services_icon_show_photo(this)">     
                                         </div> 
                                     </div>
                                     <div class="col-lg-6">
@@ -209,8 +209,8 @@ class ServicesController extends CI_Controller
                                     </div>
                                     <div class="col-lg-12">
                                        <div class="form-group">
-                                           <label>Description</label>
-                                           <textarea rows="2" cols="30" style="resize: none;"  name="description" id="description" class="form-control validate[required]" data-errormessage-value-missing="Description is required" data-prompt-position="bottomLeft"placeholder="Enter description" >'.$services_row->description.'</textarea> 
+                                           <label>Icons Description</label>
+                                           <textarea rows="2" cols="30" style="resize: none;"  name="icons_description" id="description" class="form-control validate[required]" data-errormessage-value-missing="Description is required" data-prompt-position="bottomLeft"placeholder="Enter description" >'.$services_row->description.'</textarea> 
                                        </div> 
                                     </div>
                                     <div class="col-lg-12">
@@ -241,25 +241,157 @@ class ServicesController extends CI_Controller
 	{
 	    $this->load->library('form_validation');
 		$this->form_validation->set_rules('services_name', 'services name', 'required');
-		
+		$banner_old_image=$this->input->post('ser_img');
+		$icons_old_image=$this->input->post('ser_img_icon');
+		//$uniqcode=$this->input->post('uniqcode');
+		// echo $banner_old_image.$icons_old_image.$uniqcode;
+		// echo $icons_old_image;
+  //   					die();
 			if ($this->form_validation->run())
             {  
+            	$banner_upload_image='';
+            	$icon_upload_image='';
+				if(!empty($_FILES['banner_image']['name']))
+				{
+					$config['upload_path']          = FCPATH.'/webroot/admin/all_images/';
+		            $config['allowed_types']        = '*';
+		            $config['encrypt_name'] 		= TRUE;
+		            $config['max_size']             = 1024;
+		            $config['file_name']          	= $_FILES['banner_image']['name'];
+		            $this->load->library('upload', $config);
+		            $this->upload->initialize($config);
+		            if($this->upload->do_upload('banner_image'))
+	            	{
+	            		$image_data = $this->upload->data();
+	                    $config['image_library'] = 'gd2';
+	                    $config['source_image'] = $image_data['full_path']; 
+	                    $config['create_thumb'] = TRUE;
+	 					$config['maintain_ratio'] = TRUE;
+	 					$config['new_image']    = 'webroot/admin/services_banner/'.$image_data['file_name'];
+	                    $config['width'] = 400;
+	                    $config['height'] = 400;
+	                    $this->load->library('image_lib', $config);
+	            		$this->image_lib->clear();
+						$this->image_lib->initialize($config);
+						$banner_upload_image=$image_data['raw_name'].'_thumb'.$image_data['file_ext'];
+
+					    if (!$this->image_lib->resize())
+				     	{
+	        				$this->handle_error($this->image_lib->display_errors());
+	   					}
+	   				    $file = FCPATH.'/webroot/admin/all_images/'.$image_data['file_name'];
+
+						if(file_exists($file))
+						{
+	    					unlink($file);
+						}
+						$file = FCPATH.'/webroot/admin/services_banner/'.$banner_old_image;
+						if(file_exists($file))
+						{
+	    					unlink($file);
+						}
+	             	}
+	       		}
+	       		
+	       		if(!empty($_FILES['icon_image']['name']))
+				{
+					$config['upload_path']          = FCPATH.'/webroot/admin/all_images/';
+		            $config['allowed_types']        = '*';
+		            $config['encrypt_name'] 		= TRUE;
+		            $config['max_size']             = 1024;
+		            $config['file_name']          	= $_FILES['icon_image']['name'];
+		            $this->load->library('upload', $config);
+		            $this->upload->initialize($config);
+		            if($this->upload->do_upload('icon_image'))
+	            	{
+	            		$image_data = $this->upload->data();
+	                    $config['image_library'] = 'gd2';
+	                    $config['source_image'] = $image_data['full_path']; 
+	                    $config['create_thumb'] = TRUE;
+	 					$config['maintain_ratio'] = TRUE;
+	 					$config['new_image']    = 'webroot/admin/services_icon/'.$image_data['file_name'];
+	                    $config['width'] = 400;
+	                    $config['height'] = 400;
+	                    $this->load->library('image_lib', $config);
+                		$this->image_lib->clear();
+						$this->image_lib->initialize($config);
+						$icon_upload_image=$image_data['raw_name'].'_thumb'.$image_data['file_ext'];
+					    if (!$this->image_lib->resize())
+				     	{
+	        				$this->handle_error($this->image_lib->display_errors());
+	   					}
+	   				    $file = FCPATH.'/webroot/admin/all_images/'.$image_data['file_name'];
+    					if(file_exists($file))
+    					{
+        					unlink($file);
+    					}
+    					;
+    					$file = FCPATH.'/webroot/admin/services_icon/'.$icons_old_image;
+						if(file_exists($file))
+						{
+	    					unlink($file);
+						}
+						// pr($icon_upload_image);
+
+	             	}
+        		}
             	
             		$uniqcode=$this->input->post('uniqcode');
               	    $services_name=$this->input->post('services_name');
-        			$this->db->where('status <>', 'Delete');
+              	    $icons_description=$this->input->post('icons_description');
+              	    $banner_description=$this->input->post('banner_description');
+              	    //die();
+              	    //echo "hello"
+              	    $this->db->where('status <>', 'Delete');
 					$this->db->where('services_name', $services_name);
 					$this->db->where('uniqcode <>', $uniqcode);
 					$services_all_row=$this->db->get('tbl_services')->row(); 
-    			  	if(empty($services_all_row)){
-					$data=array(
-					'services_name'=> $services_name,
-					'update_datetime' => date('Y-m-d H:i:s')
-				);
-				$this->db->where('uniqcode', $uniqcode);
-				$update=$this->db->update('tbl_services', $data);
-				$this->session->set_flashdata('success', 'Services name update successfully.');	
-				redirect('admin/services');
+					 // pr($services_all_row);
+					 // die();
+    			  	if(empty($services_all_row))
+    			  	{
+    			  		//pr($banner_upload_image);
+							//die();
+	    			  	if($banner_upload_image=="" &&  $icon_upload_image=="")
+	    			  	{		
+							$data=array(
+							'services_name'=> $services_name,
+							'description' => $icons_description,
+							'banner_description' =>$banner_description,
+							'update_datetime' => date('Y-m-d H:i:s')
+							);
+							//echo "hello";
+						}
+						else if(empty($banner_upload_image))
+	    			  	{		
+							$data=array(
+							'services_name'=> $services_name,
+							'description' => $icons_description,
+							'services_icon' =>  $icon_upload_image,
+							'banner_description' =>$banner_description,
+							'update_datetime' => date('Y-m-d H:i:s')
+							);
+							echo "h";
+						} 
+						else if(empty($icon_upload_image))
+	    			  	{		
+							$data=array(
+							'services_name'=> $services_name,
+							'description' => $icons_description,
+							'services_images' =>$banner_upload_image,
+							'banner_description' =>$banner_description,
+							'update_datetime' => date('Y-m-d H:i:s')
+							); 
+							echo "h2";
+							
+						}
+									// echo "hello";
+	       	// 	die();
+						$this->db->where('uniqcode', $uniqcode);
+						$update=$this->db->update('tbl_services', $data);
+						$this->session->set_flashdata('success', 'Services name update successfully.');	
+						redirect('admin/services');
+					
 				}
 				else
 				{
@@ -273,6 +405,7 @@ class ServicesController extends CI_Controller
             	$this->session->set_flashdata('error', 'Please fill in all the files!');	
 					redirect('admin/services');
             }
+        
 	}
 
 	public function destroy($uniqcode)
@@ -283,8 +416,8 @@ class ServicesController extends CI_Controller
     	);
 	  	$this->db->where('uniqcode', $uniqcode);
 	  	$this->db->update('tbl_services', $data);
-	  	$delete_pic=$this->CommonModel->RetriveRecordByWhereRow('tbl_services',['uniqcode'=>$uniqcode],'services_icons,services_images');
-	  	$old_image=$delete_pic->services_icons;
+	  	$delete_pic=$this->CommonModel->RetriveRecordByWhereRow('tbl_services',['uniqcode'=>$uniqcode],'services_icon,services_images');
+	  	$old_image=$delete_pic->services_icon;
 	  	$old_image1=$delete_pic->services_images;
 	  	$file = FCPATH.'/webroot/admin/services_icon/'.$old_image;
 		if(file_exists($file))

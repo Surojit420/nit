@@ -271,7 +271,7 @@ class ChooseNitController extends CI_Controller
 			}
 		}
 		else
-		{
+		{ 
 			$this->session->set_flashdata('error', 'Please fill in all the files!');
 			redirect('admin/choosenit');
 		}
@@ -285,6 +285,13 @@ class ChooseNitController extends CI_Controller
     	);
 	  	$this->db->where('uniqcode', $uniqcode);
 	  	$this->db->update('tbl_why_choose', $data);
+	  	$delete_pic=$this->CommonModel->RetriveRecordByWhereRow('tbl_why_choose',['uniqcode'=>$uniqcode],'image');
+	  	$old_image=$delete_pic->image;
+	  	$file = FCPATH.'/webroot/admin/choosenit/'.$old_image;
+		if(file_exists($file))
+		{
+			unlink($file);
+		}
 	 	$this->session->set_flashdata('success', 'Choose Nit deleted successfully');                     
 	 	redirect('admin/choosenit');
 	}	

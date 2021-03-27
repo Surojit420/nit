@@ -89,7 +89,7 @@
                                             <input type="text" name="twitter" id="link" class="form-control validate[required]" data-errormessage-value-missing="link is required" data-prompt-position="bottomLeft" placeholder="twitter link" maxlength="200">     
                                         </div>
                                     </div>
-                                     <div class="col-lg-6">
+                                  <!--    <div class="col-lg-6">
                                         <div class="form-group">
                                             Icones
                                         <select class="form-control form-control-lg" >
@@ -102,7 +102,7 @@
                                             <label>Link</label>
                                             <input type="text" name="linkedin" id="link" class="form-control validate[required]" data-errormessage-value-missing="link is required" data-prompt-position="bottomLeft" placeholder="linkedin link" maxlength="200">     
                                         </div>
-                                    </div>
+                                    </div> -->
                                      <div class="col-lg-6">
                                         <div class="form-group">
                                             Icones
@@ -123,7 +123,7 @@
                                 </div>
                                 <div class="col-sm-12">
                                     <button class="btn btn-warning btn-primary pull-right m-t-n-xs grediant-btn" type="reset"><strong>Cancel</strong></button>
-                                    <button type="submit" class="btn btn-primary" style="margin-left: 756px;" onclick="checkcontact()"><strong>Save<strong></button>
+                                    <button type="submit" class="btn btn-primary" id="save_submit" style="margin-left: 756px;" onclick="checkcontact()"><strong>Save<strong></button>
                                 </div>
                             </form>
                         </div>
@@ -214,7 +214,14 @@
                                             <img src="<?= base_url('webroot/admin/contact/'.$value->contact_images)?>" class="showTableImage" id="product_img">
                                         </td>
                                         <td>
-                                          link
+                                         <?php 
+                                         $link=array();
+                                          $link=unserialize($value->link);
+                                          foreach ($link as $key => $val)
+                                           {
+                                          ?>
+                                          <a href="<?=$val?>"><i class='fa fa-<?=$key?>' aria-hidden='true'></i></a>
+                                        <?php } ?>
                                         </td>
                                         <td>
                                             <input type="checkbox" class="js-switch" onchange="common_status_change(this.value)" id="status" value="<?=$value->uniqcode?>" <?=$value->status == 'Active' ? 'checked' : ''?> /></td>
