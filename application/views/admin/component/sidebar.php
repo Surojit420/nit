@@ -53,6 +53,34 @@
                                <li class="<?=$controller_name=='ServicesTypeController' ? 'active' : ''?>"><a href="<?=base_url('admin/services_type')?>">Services Type</a></li> 
                             </ul>
                         </li>
+                        <li class="<?=$controller_name=='LogoController' ? 'active' : ''?>  <?=$controller_name=='FootContactController' ? 'active' : ''?> <?=$controller_name=='BannerController' ? 'active' : ''?> <?=$controller_name=='MissionController' ? 'active' : ''?> <?=$controller_name=='VisionController' ? 'active' : ''?> <?=$controller_name=='TechnologiesController' ? 'active' : ''?> <?=$controller_name=='ChooseNitController' ? 'active' : ''?> <?=$controller_name=='PortfolioController' ? 'active' : ''?> <?=$controller_name=='WorkFlowController' ? 'active' : ''?> <?=$controller_name=='JobSummaryController' ? 'active' : ''?>">
+                            <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                                <i class="fa fa-cog" aria-hidden="true"></i>
+                                <span class="nav-text">Pages</span>
+                            </a>
+                            <ul aria-expanded="false">
+                                <li class="<?=$controller_name=='LogoController' ? 'active' : ''?>"><a href="<?=base_url('admin/comon')?>">common</a></li>
+                           
+                                 <li class="<?=$controller_name=='PortfolioController' ? 'active' : ''?>"><a href="<?=base_url('admin/page-portfolio')?>">Portfolio</a></li>
+
+                                <!-- <li class="<?=$controller_name=='BannerController' ? 'active' : ''?>"><a href="<?=base_url('admin/banner')?>">Banner</a></li>
+
+                                <li class="<?=$controller_name=='MissionController' ? 'active' : ''?>"><a href="<?=base_url('admin/mission')?>">Mission</a></li>
+
+                                <li class="<?=$controller_name=='VisionController' ? 'active' : ''?>"><a href="<?=base_url('admin/vision')?>">Vision</a></li>
+
+                                <li class="<?=$controller_name=='TechnologiesController' ? 'active' : ''?>"><a href="<?=base_url('admin/technologies')?>">Technologies</a></li>
+
+                                <li class="<?=$controller_name=='ChooseNitController' ? 'active' : ''?>"><a href="<?=base_url('admin/choosenit')?>">Choose Nit</a></li>
+
+                                <li class="<?=$controller_name=='PortfolioController' ? 'active' : ''?>"><a href="<?=base_url('admin/portfolio')?>">Portfolio</a></li>
+
+                                <li class="<?=$controller_name=='WorkFlowController' ? 'active' : ''?>"><a href="<?=base_url('admin/workflow')?>">Work flow</a></li>
+
+                                <li class="<?=$controller_name=='JobSummaryController' ? 'active' : ''?>"><a href="<?=base_url('admin/job_summary')?>">Job Summary</a></li>
+ -->
+                            </ul>
+                        </li>
                         <li class="<?=$controller_name=='BusinessController' ? 'active' : ''?>" >
                             <a href="<?=base_url('admin/business')?>" class="ai-icon" aria-expanded="false">
                                 <i class="fa fa-industry" aria-hidden="true"></i>
