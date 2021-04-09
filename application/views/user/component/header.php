@@ -6,8 +6,19 @@
 	<meta name="google-site-verification" content="8dmF62AEQ8wuBtZpKdigfLu4jRUz3_2rSdJtKpNFuj4"/>
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 	<link rel="canonical" href="https://www.nitsolution.in/">
-	
-    <title><?=$page_title?></title>
+	 <?php
+    if(!empty($title))
+    {
+   ?>
+   <?=$title->head?>
+  <?php } ?>
+  <?php
+    if(!empty($title_common))
+    {
+   ?>
+   <?=$title->head?>
+  <?php } ?>
+
     <!-- =========== STYLESHEETS ============== -->
     <?php if(!empty($logo)) { ?>
     <link rel="icon" href="<?=base_url()?>webroot/admin/logo/web/<?=$logo->image?>" type="image/x-icon" sizes="16x16">
@@ -33,6 +44,12 @@
  
   <body>
     <!-- Back to top button start -->
+      <?php if(!empty($body)) {?>
+        <?=$body->start_body?>
+      <?php }?>
+      <?php if(!empty($body_common)) {?>
+        <?=$body_common->start_body?>
+      <?php }?>
         <a class="bounce-2" id="back-to-top">
           <i class="back-top-icon"></i>
         </a>

@@ -2254,10 +2254,16 @@ body
 
 /*----------About us banner start----------*/
 	.about-us-banner {
-		padding: 8em 0;
-		background-image: url(../images/about-us.png);
-		background-size: cover;
+		/*padding: 8em 0;*/
+/*		background-image: url(../images/about-us.png);
+*/		background-size: cover;
 		box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.41);
+	
+	}
+	.about-us-banner .about-us-content
+	{
+		top:-590px !important;
+		position: absolute;
 	}
 	.about-us-banner .about-us-content p{
 		color: #fff;

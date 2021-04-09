@@ -34,7 +34,6 @@ class ServicesTypeController extends CI_Controller
 		$this->data['foot_con'] = $this->CommonModel->RetriveRecordByWhereRow('tbl_contact',['status'=>'Active'],'footer_copy_right');
 		$this->load->view('admin/layout/default', $this->data);
 	}
-
 	public function services_add()
 	{
 			$this->load->library('form_validation');

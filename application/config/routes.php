@@ -51,7 +51,60 @@ $route['admin/service_add'] = 'admin/services/ServicesController/service_add';
 $route['admin/services/status'] = 'admin/services/ServicesController/status';
 $route['admin/services/edit_data'] = 'admin/services/ServicesController/edit_services';
 $route['admin/services/update'] = 'admin/services/ServicesController/update_services_data';
-$route['admin/services/destroy/([a-zA-Z0-9]+)'] = 'admin/services/ServicesController/destroy/$1';   
+$route['admin/services/destroy/([a-zA-Z0-9]+)'] = 'admin/services/ServicesController/destroy/$1'; 
+// pages
+// pages common
+$route['admin/page-common']='admin/pages/CommonController';
+$route['admin/page-addcommon']='admin/pages/CommonController/add';
+$route['admin/page-status/common'] = 'admin/pages/CommonController/status';
+$route['admin/page-common/edit_data']='admin/pages/CommonController/edit';
+$route['admin/pages/common/update']='admin/pages/commonController/update';
+$route['admin/page-common/destroy/([a-zA-Z0-9]+)'] = 'admin/pages/CommonController/destroy/$1';
+// pages portfolio
+$route['admin/page-portfolio']='admin/pages/PortfolioController';
+$route['admin/page-addportfolio']='admin/pages/PortfolioController/add';
+$route['admin/page-status/portfolio']='admin/pages/PortfolioController/status';
+$route['admin/page-portfolio/edit_data']='admin/pages/PortfolioController/edit';
+$route['admin/pages/portfolio/update']='admin/pages/PortfolioController/update';
+$route['admin/page-portfolio/destroy/([a-zA-Z0-9]+)'] = 'admin/pages/PortfolioController/destroy/$1';
+// pages career
+$route['admin/page-career']='admin/pages/CareerController';
+$route['admin/page-addcareer']='admin/pages/CareerController/add';
+$route['admin/page-status/career']='admin/pages/CareerController/status';
+$route['admin/page-career/edit_data']='admin/pages/CareerController/edit';
+$route['admin/pages/career/update']='admin/pages/CareerController/update';
+$route['admin/page-career/destroy/([a-zA-Z0-9]+)'] = 'admin/pages/CareerController/destroy/$1';
+// pages quotation
+$route['admin/page-quotation']='admin/pages/QuotationController';
+$route['admin/page-addquotation']='admin/pages/quotationController/add';
+$route['admin/page-status/quotation']='admin/pages/QuotationController/status';
+$route['admin/page-quotation/edit_data']='admin/pages/QuotationController/edit';
+$route['admin/pages/quotation/update']='admin/pages/QuotationController/update';
+$route['admin/page-quotation/destroy/([a-zA-Z0-9]+)'] = 'admin/pages/QuotationController/destroy/$1';
+// pages aboutus
+$route['admin/page-aboutus']='admin/pages/AboutusController';
+$route['admin/page-addaboutus']='admin/pages/AboutusController/add';
+$route['admin/page-status/aboutus']='admin/pages/AboutusController/status';
+$route['admin/page-aboutus/edit_data']='admin/pages/AboutusController/edit';
+$route['admin/pages/aboutus/update']='admin/pages/AboutusController/update';
+$route['admin/page-aboutus/destroy/([a-zA-Z0-9]+)'] = 'admin/pages/AboutusController/destroy/$1';
+
+// pages contactus
+$route['admin/page-contactus']='admin/pages/ContactusController';
+$route['admin/page-addcontactus']='admin/pages/ContactusController/add';
+$route['admin/page-status/contactus']='admin/pages/ContactusController/status';
+$route['admin/page-contactus/edit_data']='admin/pages/ContactusController/edit';
+$route['admin/pages/contactus/update']='admin/pages/ContactusController/update';
+$route['admin/page-contactus/destroy/([a-zA-Z0-9]+)'] = 'admin/pages/ContactusController/destroy/$1';
+
+// pages Services
+$route['admin/page-services'] = 'admin/pages/ServicesController';
+$route['admin/page-addservices'] = 'admin/pages/ServicesController/add';
+$route['admin/page-status/services'] = 'admin/pages/ServicesController/status';
+$route['admin/page-services/edit_data']='admin/pages/ServicesController/edit';
+$route['admin/pages/services/update']='admin/pages/ServicesController/update';
+$route['admin/services/destroy/([a-zA-Z0-9]+)'] = 'admin/pages/ServicesController/destroy/$1';
+  
 // Services Type
 $route['admin/services_type'] = 'admin/services/ServicesTypeController/services_type';
 $route['admin/services_add'] = 'admin/services/ServicesTypeController/services_add';

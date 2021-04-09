@@ -6,14 +6,18 @@
               <div class="col-md-6 col-sm-6">
                 <h3 class="section-heading wow animate__animated animate__backInDown">CAREER</h3>
                 <p class="section-content wow animate__animated animate__backInUp">
-                  A job at NIT is the beginning of a career made by you, We offer a great opportunity for personal and professional development with lots of benefits and perks. Interested candidate can send their CV.
+                   <?php  if(!empty($banner_image)) { ?>
+                   <?=$banner_image->description?>
+                   <?php  } ?>
                 </p>
 
                 <p class="drop-mail wow animate__animated animate__backInLeft">Drop your CV/Resume at <span>info@nitsolution.in /support@nitsolution.in</span></p>
                 <!-- <a href="blog.html" class="btn_3">Get A Free Quote</a> -->
               </div>
               <div class="col-md-6 col-sm-6">
-                <img class="img-on-banner wow animate__animated animate__flipInX" style="height: auto; width: inherit; float: right;" src="<?=base_url()?>webroot/user/images/quote_form.png">
+                <?php if(!empty($banner_image)) { ?>
+                <img class="img-on-banner wow animate__animated animate__flipInX" style="height: auto; width: inherit; float: right;" src="<?=base_url()?>webroot/admin/bannercareer/<?=$banner_image->image?>">
+              <?php } ?>
               </div>
             </div>
           </div>

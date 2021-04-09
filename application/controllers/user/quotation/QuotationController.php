@@ -17,6 +17,7 @@ class QuotationController extends CI_Controller
 	} 
 	public function insert()
 	{
+		
 		        $name=$this->input->post('name');
 		        $email=$this->input->post('email');
 		        $phone=$this->input->post('phone');

@@ -180,6 +180,12 @@
         </section>
         <!-- copyright Section Ends -->
       </footer>
+      <?php if(!empty($body)) {?>
+        <?=$body->close_body?>
+      <?php }?>
+      <?php if(!empty($body_common)) {?>
+        <?=$body_common->close_body?>
+      <?php }?>
     <!-- Footer End -->
 
     <!-- SCRIPTS -->

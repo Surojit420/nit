@@ -24,8 +24,13 @@ class AboutController extends CI_Controller
 		$select='uniqcode,services_name,services_icon,description';
 		$this->data['servics']=$this->CommonModel->RetriveRecordByWhere('tbl_services',$where_clause,$select);
 		$this->data['company_address']=$this->CommonModel->RetriveRecordByWhereRow('tbl_contact',['status'=>'Active'],'*');
+		$this->data['banner_image']=$this->CommonModel->RetriveRecordByWhereRow('tbl_pages',['status'=>'Active','type'=>'aboutus','name'=>'aboutus'],'description,image');
+		$this->data['title']=$this->CommonModel->RetriveRecordByWhereRow('tbl_pages',['status'=>'Active','type'=>'aboutus','name'=>'aboutus'],'head');
+		$this->data['title_common']=$this->CommonModel->RetriveRecordByWhereRow('tbl_pages',['status'=>'Active','type'=>'common','name'=>'common'],'head');
+			$this->data['body']=$this->CommonModel->RetriveRecordByWhereRow('tbl_pages',['status'=>'Active','type'=>'aboutus','name'=>'aboutus'],'start_body,close_body');
+			$this->data['body_common']=$this->CommonModel->RetriveRecordByWhereRow('tbl_pages',['status'=>'Active','type'=>'common','name'=>'common'],'start_body,close_body');
 		$this->data['logo']=$this->CommonModel->RetriveRecordByWhereRow('tbl_logo',['status'=>'Active'],'*');
-		$this->data['page_title']='NIT | About';
+		//this->data['page_title']='NIT | About';
 		$this->data['subview']='about/about';
 		$this->load->view('user/layout/default', $this->data);
 	}

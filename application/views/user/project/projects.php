@@ -7,7 +7,9 @@
             <div class="row">
               <div class="col-md-6 col-sm-6">
                 <div class="portfolio-img">
-                  <img src="<?=base_url()?>webroot/user/images/hand.png">
+                  <?php  if(!empty($banner_image)) { ?>
+                  <img src="<?=base_url()?>webroot/admin/bannerportfolio/<?=$banner_image->image?>">
+                <?php  } ?>
                 </div>
               </div>
               <div class="col-md-6 col-sm-6">
@@ -16,9 +18,11 @@
                     <h2 class="section-title wow animate__animated animate__fadeInDown">OUR <strong>PORTFOLIO</strong></h2>
                   </div>
                   <p class="portfolio-desc wow animate__animated animate__backInUp">
-                    Our work involves developing a website that is customer-centric for a variety of business domains, we help our client in improving their online presence, we create SEO friendly website which helps in connecting to the customer following the guidelines of
+                     <?php  if(!empty($banner_image)) { ?>
+                   <?=$banner_image->description?>
+                   <?php  } ?>
                   </p>
-                  <a href="" class="btn_3 wow animate__animated animate__backInLeft">Get A Free Quote</a>
+                  <a href="<?=base_url()?>" class="btn_3 wow animate__animated animate__backInLeft">Get A Free Quote</a>
                 </div>
               </div>
             </div>

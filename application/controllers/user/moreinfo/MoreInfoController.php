@@ -27,27 +27,32 @@ class MoreInfoController extends CI_Controller
 			'status'=>'Active'
 		);
 		$this->data['job_summary']=$this->CommonModel->RetriveRecordByWhere('tbl_job_summary',$where_clause,$select);
+		$this->data['banner_image']=$this->CommonModel->RetriveRecordByWhereRow('tbl_pages',['status'=>'Active','type'=>'career','name'=>'career'],'description,image');
+		$this->data['title']=$this->CommonModel->RetriveRecordByWhereRow('tbl_pages',['status'=>'Active','type'=>'career','name'=>'career'],'head');
+		$this->data['title_common']=$this->CommonModel->RetriveRecordByWhereRow('tbl_pages',['status'=>'Active','type'=>'common','name'=>'common'],'head');
+		$this->data['body']=$this->CommonModel->RetriveRecordByWhereRow('tbl_pages',['status'=>'Active','type'=>'career','name'=>'career'],'start_body,close_body');
+		$this->data['body_common']=$this->CommonModel->RetriveRecordByWhereRow('tbl_pages',['status'=>'Active','type'=>'common','name'=>'common'],'start_body,close_body');
 		$this->data['contact']=$this->CommonModel->RetriveRecordByWhereRow('tbl_contact',$where_clause,'*');
 		$this->data['email']=$this->CommonModel->RetriveRecordByWhereRow('tbl_contact',$where_clause,'*');
 		$this->data['address']=$this->CommonModel->RetriveRecordByWhereRow('tbl_contact',$where_clause,'*');
 		$this->data['logo']=$this->CommonModel->RetriveRecordByWhereRow('tbl_logo',['status'=>'Active'],'*'); 
 		$this->data['company_address']=$this->CommonModel->RetriveRecordByWhereRow('tbl_contact',['status'=>'Active'],'*');
-		$this->data['page_title']='NIT | Career';
+		//$this->data['page_title']='NIT | Career';
 		$this->data['subview']='career/career';
 		$this->load->view('user/layout/default', $this->data);
 	}
 
-	public function blog()
-	{
-		$where_clause=array(
-			'status'=>'Active'
-		);
-		$select='uniqcode,services_name,services_icon,description';
-		$this->data['servics']=$this->CommonModel->RetriveRecordByWhere('tbl_services',$where_clause,$select);
-		$this->data['page_title']='NIT | Blog';
-		$this->data['subview']='blog/blog';
-		$this->load->view('user/layout/default', $this->data);
-	}
+	// public function blog()
+	// {
+	// 	$where_clause=array(
+	// 		'status'=>'Active'
+	// 	);
+	// 	$select='uniqcode,services_name,services_icon,description';
+	// 	$this->data['servics']=$this->CommonModel->RetriveRecordByWhere('tbl_services',$where_clause,$select);
+	// 	$this->data['page_title']='NIT | Blog';
+	// 	$this->data['subview']='blog/blog';
+	// 	$this->load->view('user/layout/default', $this->data);
+	// }
 
 	public function quotation()
 	{
@@ -56,13 +61,19 @@ class MoreInfoController extends CI_Controller
 		);
 
 		$select='uniqcode,services_name,services_icon,description';
+		
 		$this->data['servics']=$this->CommonModel->RetriveRecordByWhere('tbl_services',$where_clause,$select);
 		$this->data['logo']=$this->CommonModel->RetriveRecordByWhereRow('tbl_logo',['status'=>'Active'],'*');
 		$this->data['contact']=$this->CommonModel->RetriveRecordByWhereRow('tbl_contact',$where_clause,'*');
 		$this->data['email']=$this->CommonModel->RetriveRecordByWhereRow('tbl_contact',$where_clause,'*');
 		$this->data['address']=$this->CommonModel->RetriveRecordByWhereRow('tbl_contact',$where_clause,'*'); 
 		$this->data['company_address']=$this->CommonModel->RetriveRecordByWhereRow('tbl_contact',['status'=>'Active'],'*');
-		$this->data['page_title']='NIT | Quotation';
+		$this->data['banner_image']=$this->CommonModel->RetriveRecordByWhereRow('tbl_pages',['status'=>'Active','type'=>'quotation','name'=>'quotation'],'head,image,description');
+		$this->data['title']=$this->CommonModel->RetriveRecordByWhereRow('tbl_pages',['status'=>'Active','type'=>'quotation','name'=>'quotation'],'head');
+		$this->data['title_common']=$this->CommonModel->RetriveRecordByWhereRow('tbl_pages',['status'=>'Active','type'=>'common','name'=>'common'],'head');
+			$this->data['body']=$this->CommonModel->RetriveRecordByWhereRow('tbl_pages',['status'=>'Active','type'=>'quotation','name'=>'quotation'],'start_body,close_body');
+			$this->data['body_common']=$this->CommonModel->RetriveRecordByWhereRow('tbl_pages',['status'=>'Active','type'=>'common','name'=>'common'],'start_body,close_body');
+		//$this->data['page_title']='NIT | Quotation';
 		$this->data['subview']='quotation/quotation';
 		$this->load->view('user/layout/default', $this->data);
 	}

@@ -53,27 +53,28 @@
                                <li class="<?=$controller_name=='ServicesTypeController' ? 'active' : ''?>"><a href="<?=base_url('admin/services_type')?>">Services Type</a></li> 
                             </ul>
                         </li>
+                        <!-- pages -->
                         <li class="<?=$controller_name=='LogoController' ? 'active' : ''?>  <?=$controller_name=='FootContactController' ? 'active' : ''?> <?=$controller_name=='BannerController' ? 'active' : ''?> <?=$controller_name=='MissionController' ? 'active' : ''?> <?=$controller_name=='VisionController' ? 'active' : ''?> <?=$controller_name=='TechnologiesController' ? 'active' : ''?> <?=$controller_name=='ChooseNitController' ? 'active' : ''?> <?=$controller_name=='PortfolioController' ? 'active' : ''?> <?=$controller_name=='WorkFlowController' ? 'active' : ''?> <?=$controller_name=='JobSummaryController' ? 'active' : ''?>">
                             <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                                <i class="fa fa-cog" aria-hidden="true"></i>
+                                <i class="fa fa-file-powerpoint-o" aria-hidden="true"></i>
                                 <span class="nav-text">Pages</span>
                             </a>
                             <ul aria-expanded="false">
-                                <li class="<?=$controller_name=='LogoController' ? 'active' : ''?>"><a href="<?=base_url('admin/comon')?>">common</a></li>
+                                <li class="<?=$controller_name=='CommonController' ? 'active' : ''?>"><a href="<?=base_url('admin/page-common')?>">common</a></li>
                            
                                  <li class="<?=$controller_name=='PortfolioController' ? 'active' : ''?>"><a href="<?=base_url('admin/page-portfolio')?>">Portfolio</a></li>
 
-                                <!-- <li class="<?=$controller_name=='BannerController' ? 'active' : ''?>"><a href="<?=base_url('admin/banner')?>">Banner</a></li>
+                                 <li class="<?=$controller_name=='CareerController' ? 'active' : ''?>"><a href="<?=base_url('admin/page-career')?>">Career</a></li>
 
-                                <li class="<?=$controller_name=='MissionController' ? 'active' : ''?>"><a href="<?=base_url('admin/mission')?>">Mission</a></li>
+                               <li class="<?=$controller_name=='QuotationController' ? 'active' : ''?>"><a href="<?=base_url('admin/page-quotation')?>">Quotation</a></li>
 
-                                <li class="<?=$controller_name=='VisionController' ? 'active' : ''?>"><a href="<?=base_url('admin/vision')?>">Vision</a></li>
+                               <li class="<?=$controller_name=='AboutusController' ? 'active' : ''?>"><a href="<?=base_url('admin/page-aboutus')?>">AboutUs</a></li>
 
-                                <li class="<?=$controller_name=='TechnologiesController' ? 'active' : ''?>"><a href="<?=base_url('admin/technologies')?>">Technologies</a></li>
+                                 <li class="<?=$controller_name=='ContactusController' ? 'active' : ''?>"><a href="<?=base_url('admin/page-contactus')?>">ContactUs</a></li>
 
-                                <li class="<?=$controller_name=='ChooseNitController' ? 'active' : ''?>"><a href="<?=base_url('admin/choosenit')?>">Choose Nit</a></li>
+                                <li class="<?=$controller_name=='ServicesController' ? 'active' : ''?>"><a href="<?=base_url('admin/page-services')?>">Services</a></li>
 
-                                <li class="<?=$controller_name=='PortfolioController' ? 'active' : ''?>"><a href="<?=base_url('admin/portfolio')?>">Portfolio</a></li>
+                               <!-- <li class="<?=$controller_name=='PortfolioController' ? 'active' : ''?>"><a href="<?=base_url('admin/portfolio')?>">Portfolio</a></li>
 
                                 <li class="<?=$controller_name=='WorkFlowController' ? 'active' : ''?>"><a href="<?=base_url('admin/workflow')?>">Work flow</a></li>
 

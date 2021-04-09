@@ -2,18 +2,23 @@
 
     <!-- -----About us banner start----- -->
       <section id="about-us-banner">
+
         <div class="about-us-banner">
+          <?php  if(!empty($banner_image)) { ?>
+                  <img src="<?=base_url()?>webroot/admin/banneraboutus/<?=$banner_image->image?>">
+                <?php  } ?>
           <div class="container">
             <div class="row">
               <div class="col-md-6">
-                
               </div>
               <div class="col-md-6 col-sm-8">
                 <div class="about-us-content">
-                  <p class="wow animate__animated animate__backInUp">
-                    Our process starts with meeting clients and understands the requirement properly, this helps us in understanding their problem and providing them with solutions accordingly to achieve their business goals. After completion of the planning process we execute our work in a professional manner when it is done we do testing to find any bug or glitches or undesirable design elements. When testing is completed then we are certain that there is no problem we handover the project to the client.
+                  <p class="wow animate__animated animate__backInUp" style="padding-top: 243px;
+    padding-right: 34px;"> <?php  if(!empty($banner_image)) { ?>
+                   <?=$banner_image->description?>
+                   <?php  } ?>
                   </p>
-                  <a href="" class="btn_3 wow animate__animated animate__backInDown">Get A Free Quote</a>
+                  <a href="<?=base_url()?>" class="btn_3 wow animate__animated animate__backInDown">Get A Free Quote</a>
                 </div>
               </div>
             </div>

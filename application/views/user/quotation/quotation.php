@@ -6,13 +6,18 @@
           <div class="free-quote">
             <div class="container">
               <div class="col-md-6 col-sm-6">
-                <h3 class="section-heading" style="font-size: 40px">LET'S MAKE SOMETHING GREAT TOGETHER</h3>
+                <h3 class="section-heading" style="font-size: 40px">
+                  <?php  if(!empty($banner_image)) { ?>
+                   <?=$banner_image->description?>
+                   <?php  } ?></h3>
                 <p class="section-content">
                  
                 </p>
               </div>
               <div class="col-md-6 col-sm-6">
-                <img src="<?=base_url()?>webroot/user/images/Get_a_free_quote.png">
+                <?php if(!empty($banner_image)) { ?>
+                <img src="<?=base_url()?>webroot/admin/bannerquotation/<?=$banner_image->image?>">
+              <?php } ?>
               </div>
             </div>
           </div>

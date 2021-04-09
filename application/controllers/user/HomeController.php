@@ -62,7 +62,7 @@ class HomeController extends CI_Controller
 		$this->data['logo']=$this->CommonModel->RetriveRecordByWhereRow('tbl_logo',['status'=>'Active'],'*');
 		$this->data['why_choose_frist']=$this->CommonModel->RetriveRecordByWhereOrderbyLimit('tbl_why_choose',['status'=> 'Active'],'3','1','id','desc');
 		$this->data['why_choose_last']=$this->CommonModel->RetriveRecordByWhereOrderbyLimit('tbl_why_choose',['status'=> 'Active'],'3','3','id','desc');
-		$this->data['page_title']='Best IT Solution Company in Kolkata | NIT Solution Pvt. Ltd.';
+	//	$this->data['page_title']='Best IT Solution Company in Kolkata | NIT Solution Pvt. Ltd.';
 		$this->data['subview']='home/home';
 		//pr($this->data);
 		//$this->load->view('user/home/home', $this->data);
